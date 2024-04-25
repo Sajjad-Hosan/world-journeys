@@ -1,19 +1,69 @@
-import { getAuth } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import PropTypes from "prop-types";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import app from "../services/firebase/firebase";
 
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [wait, setWait] = useState(true);
-  const auth = getAuth();
+  const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
-
-  const authValues = { user, setUser };
+  // firebase all functions
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (newUser) => {
+      setWait(false);
+      setUser(newUser);
+    });
+    return () => {
+      unSubscribe();
+    };
+  }, [auth]);
+  const createUser = (email, password) => {
+    setWait(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+  const loginUser = (email, password) => {
+    setWait(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+  const logoutUser = () => {
+    setWait(true);
+    return signOut(auth);
+  };
+  const googlePopup = () => {
+    setWait(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+  const githubPopup = () => {
+    setWait(true);
+    return signInWithPopup(auth, githubProvider);
+  };
+  const authValues = {
+    user,
+    wait,
+    setUser,
+    createUser,
+    loginUser,
+    logoutUser,
+    googlePopup,
+    githubPopup,
+  };
   return (
     <AuthContext.Provider value={authValues}>{children}</AuthContext.Provider>
   );
 };
 
+AuthProvider.propTypes = {
+  children: PropTypes.node,
+};
 export default AuthProvider;

@@ -2,22 +2,23 @@ import { Link, NavLink } from "react-router-dom";
 import ProfileNav from "../ProfiileNav/ProfileNav";
 import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
+import { FaUser } from "react-icons/fa6";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
   const navLinks = (
     <>
       <li className="mx-3">
-        <NavLink>Home</NavLink>
+        <NavLink to='/'>Home</NavLink>
       </li>
       <li className="mx-3">
-        <NavLink>All Tourists Spot</NavLink>
+        <NavLink to='/allSpots'>All Tourists Spot</NavLink>
       </li>
       <li className="mx-3">
-        <NavLink>Add Tourist Spot</NavLink>
+        <NavLink to='/addSpot'>Add Tourist Spot</NavLink>
       </li>
       <li className="mx-3">
-        <NavLink>My List</NavLink>
+        <NavLink to='/myList'>My List</NavLink>
       </li>
     </>
   );
@@ -55,7 +56,7 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          {user ? <ProfileNav /> : <Link>Login</Link>}
+          {user ? <ProfileNav /> : <Link to='/login' className="btn btn-outline px-10"><FaUser/> Login</Link>}
         </div>
       </div>
     </>

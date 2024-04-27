@@ -6,6 +6,9 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AddSpot from "../pages/AddSpot/AddSpot";
 import ViewPage from "../pages/ViewPage/ViewPage";
+import UpdatePage from "../pages/UpdatePage/UpdatePage";
+import MyLists from "../pages/MyLists/MyLists";
+import AllSpots from "../pages/AllSpots/AllSpots";
 
 const routes = createBrowserRouter([
   {
@@ -16,32 +19,40 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch('http://localhost:4000/tourists'),
+        loader: () => fetch("http://localhost:4000/tourists"),
       },
       {
         path: "/allSpots",
-        element: <div></div>,
+        // loader: () => fetch("http://localhost:4000/tourists"),
+        element: <AllSpots />,
       },
       {
         path: "/addSpot",
-        element: <AddSpot/>,
+        element: <AddSpot />,
       },
       {
         path: "/myList",
-        element: <div></div>,
+        element: <MyLists />,
       },
       {
         path: `/tourist/:id`,
-        loader: ({params}) => fetch(`http://localhost:4000/tourist/${params.id}`),
-        element: <ViewPage/>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/tourist/${params.id}`),
+        element: <ViewPage />,
+      },
+      {
+        path: `/update/:id`,
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/tourist/${params.id}`),
+        element: <UpdatePage />,
       },
       {
         path: "/login",
-        element: <Login/>,
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <Register/>,
+        element: <Register />,
       },
     ],
   },

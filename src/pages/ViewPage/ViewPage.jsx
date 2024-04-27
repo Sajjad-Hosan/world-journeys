@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2/dist/sweetalert2";
 
 const ViewPage = () => {
   const data = useLoaderData();
-  const handleUpdate = (id) => {};
   const {
     _id,
     image,
@@ -35,20 +35,20 @@ const ViewPage = () => {
             </h2>
             <p className="text-xl font-pacifico">{travel_time}</p>
           </div>
-          <h2 className="text-xl font-medium">{country_Name}</h2>
+          <h2 className="text-xl font-medium">Country: {country_Name}</h2>
           <p className="text-sm">{description}</p>
           <p className="text-xl font-semibold font-pacifico">{average_cost}</p>
           <p className="text-xl font-semibold font-pacifico">
             Visitors Per Year : {totalVisitorsPerYear}
           </p>
-          <p className="text-xl font-semibold"> {seasonality}</p>
+          <p className="text-xl font-semibold">seasonality: {seasonality}</p>
           <div className="card-actions justify-end">
-            <button
+            <Link
               className="btn btn-neutral px-10 mt-20"
-              onClick={() => handleUpdate(_id)}
+              to={`/update/${_id}`}
             >
               Update
-            </button>
+            </Link>
           </div>
         </div>
       </div>

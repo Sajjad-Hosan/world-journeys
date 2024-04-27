@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const ThemeNav = () => {
-  const [theme, setTheme] = useState('');
+  const [theme, setTheme] = useState();
   useEffect(() => {
       setTheme(localStorage.getItem("theme"));
     document.querySelector("html").setAttribute("data-theme", theme);
@@ -50,7 +50,7 @@ const ThemeNav = () => {
         <div className="modal-box relative">
         <div className="modal-action flex items-center justify-between mb-5">
             <h1 className="text-2x">Choses Your Theme</h1>
-            <form method="dialog" onSubmit={handleThemeName}>
+            <form method="dialog">
               <button className="btn btn-ghost px-8 font-light">Close</button>
             </form>
           </div>

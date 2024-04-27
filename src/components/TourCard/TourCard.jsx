@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
 const TourCard = ({tour}) => {
-  const {_id,tourists_spot_name,location,short_description} = tour;
+  const {_id,image,tourists_spot_name,location,short_description} = tour;
   return (
     <>
       <div className="card bg-neutral text-white shadow-xl p-6">
         <div className="rounded-lg h-[300px] overflow-hidden">
           <img
           className="w-full h-full object-cover"
-            src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+            src={image}
             alt="Movie"
           />
         </div>

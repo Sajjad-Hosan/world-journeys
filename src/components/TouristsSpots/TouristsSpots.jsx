@@ -46,7 +46,7 @@ const TouristsSpots = () => {
           <option disabled>Comming Soon...</option>
         </select>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-10 py-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-10 py-5 mt-8">
         {
           filter.map(tour => <TourCard key={tour._id} tour={tour} />)
         }

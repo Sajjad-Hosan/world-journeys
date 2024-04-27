@@ -3,6 +3,7 @@ import ProfileNav from "../ProfiileNav/ProfileNav";
 import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
 import { FaUser } from "react-icons/fa6";
+import { Typewriter } from "react-simple-typewriter";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
@@ -50,7 +51,17 @@ const Header = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">World Journeys</a>
+          <a className="btn btn-ghost text-xl">
+            <Typewriter
+              words={["World Journeys", "World", "Journeys"]}
+              loop={5}
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>

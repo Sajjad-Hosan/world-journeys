@@ -1,6 +1,7 @@
 import CountryCard from "../CountryCard/CountryCard";
 
 const CountrySection = () => {
+
   return (
     <div className="flex flex-col gap-5 mt-24">
       <div className="text-center mb-10">
@@ -14,6 +15,7 @@ const CountrySection = () => {
           odit quo necessitatibus sed.
         </p>
       </div>
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-10 py-5">
         <CountryCard />
         <CountryCard />

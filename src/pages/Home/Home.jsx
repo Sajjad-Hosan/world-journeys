@@ -25,10 +25,10 @@ const Home = () => {
       <Helmet>
         <title>World Journeys || Home</title>
       </Helmet>
-        <Slider/>
-        <TouristsSpots/>
-        <CountrySection/>
-        <GuidesSection/>
+      <Slider />
+      <TouristsSpots />
+      <CountrySection />
+      <GuidesSection />
     </div>
   );
 };

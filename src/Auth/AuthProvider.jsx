@@ -17,6 +17,8 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [data, setData] = useState([]);
+  const [filter,setFilter] = useState([]);
+  const [country,setCountry] = useState('');
   const [wait, setWait] = useState(true);
   const [modal, setModal] = useState(false);
   const auth = getAuth(app);
@@ -54,9 +56,13 @@ const AuthProvider = ({ children }) => {
   };
   const authValues = {
     user,
+    filter,
     data,
     wait,
+    country,
     modal,
+    setFilter,
+    setCountry,
     setUser,
     setData,
     createUser,

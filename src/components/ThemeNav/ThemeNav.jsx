@@ -48,7 +48,12 @@ const ThemeNav = () => {
     <>
       <dialog id="theme_page" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box relative">
-            <h1 className="text-2x mb-5">Choses Your Theme</h1>
+        <div className="modal-action flex items-center justify-between mb-5">
+            <h1 className="text-2x">Choses Your Theme</h1>
+            <form method="dialog" onSubmit={handleThemeName}>
+              <button className="btn btn-ghost px-8 font-light">Close</button>
+            </form>
+          </div>
           <ul
             tabIndex={0}
             className="dropdown-content space-y-3 z-[1] p-2 w-full"
@@ -66,11 +71,6 @@ const ThemeNav = () => {
               </li>
             ))}
           </ul>
-          <div className="modal-action absolute top-1 right-4">
-            <form method="dialog" onSubmit={handleThemeName}>
-              <button className="btn btn-ghost px-8 font-light">Close</button>
-            </form>
-          </div>
         </div>
       </dialog>
     </>

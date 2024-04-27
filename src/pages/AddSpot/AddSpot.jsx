@@ -67,73 +67,73 @@ const AddSpot = () => {
           type="text"
           name="spot_name"
           placeholder="tourists spot name"
-          className="input input-bordered w-full font-medium"
+          className="input input-bordered w-full font-medium font-montserrat"
         />
         <div className="flex flex-col md:flex-row gap-5 my-5 md:my-0">
           <input
             type="text"
             name="Country_name"
             placeholder="country name"
-            className="input input-bordered w-full font-medium"
+            className="input input-bordered w-full font-medium font-montserrat"
           />
           <input
             type="text"
             name="location_name"
             placeholder="location name"
-            className="input input-bordered w-full font-medium"
+            className="input input-bordered w-full font-medium font-montserrat"
           />
         </div>
         <input
           type="text"
           name="short_des"
           placeholder="short description"
-          className="input input-bordered w-full font-medium"
+          className="input input-bordered w-full font-medium font-montserrat"
         />
         <div className="flex flex-col md:flex-row gap-5 my-5 md:my-0">
           <input
             type="text"
             name="avg_cost"
             placeholder="average cost"
-            className="input input-bordered w-full font-medium"
+            className="input input-bordered w-full font-medium font-montserrat"
           />
           <input
             type="text"
             name="travel_time"
             placeholder="travel time"
-            className="input input-bordered w-full font-medium"
+            className="input input-bordered w-full font-medium font-montserrat"
           />
         </div>
         <input
           type="text"
           name="photoUrl"
           placeholder="photoUrl"
-          className="input input-bordered w-full font-medium"
+          className="input input-bordered w-full font-medium font-montserrat"
         />
         <div className="flex flex-col md:flex-row gap-5 my-5 md:my-0">
           <input
             type="text"
             name="seasonality"
             placeholder="seasonality names"
-            className="input input-bordered w-full font-medium"
+            className="input input-bordered w-full font-medium font-montserrat"
           />
           <input
             type="text"
             name="total_visitor"
             placeholder="total visitor per year"
-            className="input input-bordered w-full font-medium"
+            className="input input-bordered w-full font-medium font-montserrat"
           />
         </div>
         <input
           type="text"
           name="user_name"
           placeholder="write your username"
-          className="input input-bordered w-full font-medium"
+          className="input input-bordered w-full font-medium font-montserrat"
         />
         <input
           type="text"
           name="user_email"
           placeholder="write your email"
-          className="input input-bordered w-full font-medium mt-5 md:mt-0"
+          className="input input-bordered w-full font-medium font-montserrat mt-5 md:mt-0"
         />
         <div className="col-span-2 mx-auto my-5">
           <input

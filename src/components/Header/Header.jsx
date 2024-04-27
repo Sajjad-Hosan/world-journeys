@@ -8,16 +8,16 @@ const Header = () => {
   const { user } = useContext(AuthContext);
   const navLinks = (
     <>
-      <li className="mx-3 my-2">
+      <li className="mx-3 my-2 font-montserrat">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="mx-3 my-2">
+      <li className="mx-3 my-2 font-montserrat">
         <NavLink to="/allSpots">All Tourists Spot</NavLink>
       </li>
-      <li className="mx-3 my-2">
+      <li className="mx-3 my-2 font-montserrat">
         <NavLink to="/addSpot">Add Tourist Spot</NavLink>
       </li>
-      <li className="mx-3 my-2">
+      <li className="mx-3 my-2 font-montserrat">
         <NavLink to="/myList">My List</NavLink>
       </li>
     </>

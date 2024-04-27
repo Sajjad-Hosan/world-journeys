@@ -8,17 +8,17 @@ const Header = () => {
   const { user } = useContext(AuthContext);
   const navLinks = (
     <>
-      <li className="mx-3">
-        <NavLink to='/'>Home</NavLink>
+      <li className="mx-3 my-2">
+        <NavLink to="/">Home</NavLink>
       </li>
-      <li className="mx-3">
-        <NavLink to='/allSpots'>All Tourists Spot</NavLink>
+      <li className="mx-3 my-2">
+        <NavLink to="/allSpots">All Tourists Spot</NavLink>
       </li>
-      <li className="mx-3">
-        <NavLink to='/addSpot'>Add Tourist Spot</NavLink>
+      <li className="mx-3 my-2">
+        <NavLink to="/addSpot">Add Tourist Spot</NavLink>
       </li>
-      <li className="mx-3">
-        <NavLink to='/myList'>My List</NavLink>
+      <li className="mx-3 my-2">
+        <NavLink to="/myList">My List</NavLink>
       </li>
     </>
   );
@@ -56,7 +56,13 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          {user ? <ProfileNav /> : <Link to='/login' className="btn btn-outline px-10"><FaUser/> Login</Link>}
+          {user ? (
+            <ProfileNav />
+          ) : (
+            <Link to="/login" className="btn btn-outline px-10">
+              <FaUser /> Login
+            </Link>
+          )}
         </div>
       </div>
     </>

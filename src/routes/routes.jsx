@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound/NotFound";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import AddSpot from "../pages/AddSpot/AddSpot";
 
 const routes = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch('http://localhost:4000/tourists'),
         errorElement: <NotFound />,
       },
       {
@@ -22,10 +24,10 @@ const routes = createBrowserRouter([
       },
       {
         path: "/addSpot",
-        element: <div></div>,
+        element: <AddSpot/>,
       },
       {
-        path: "/mtList",
+        path: "/myList",
         element: <div></div>,
       },
       {

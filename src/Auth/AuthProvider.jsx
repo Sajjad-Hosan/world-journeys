@@ -14,7 +14,9 @@ import app from "../services/firebase/firebase";
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [data, setData] = useState([]);
   const [wait, setWait] = useState(true);
+  const [modal, setModal] = useState(false);
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -50,13 +52,17 @@ const AuthProvider = ({ children }) => {
   };
   const authValues = {
     user,
+    data,
     wait,
+    modal,
     setUser,
+    setData,
     createUser,
     loginUser,
     logoutUser,
     googlePopup,
     githubPopup,
+    setModal,
   };
   return (
     <AuthContext.Provider value={authValues}>{children}</AuthContext.Provider>

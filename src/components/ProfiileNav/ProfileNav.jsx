@@ -1,10 +1,37 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import Profile from "../Profile/Profile";
 
 const ProfileNav = () => {
-    const {user} = useContext(AuthContext);
+  const { user, logoutUser } = useContext(AuthContext);
+  const handleUserLogout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You Want To Logout",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Logout",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logoutUser();
+        Swal.fire({
+          title: "Logout",
+          icon: "success",
+        });
+      }
+    });
+  };
+  const handleProfilePage = () => {
+    document.getElementById("profile_page").showModal();
+  };
   return (
     <div>
+      <div className="absolute">
+        <Profile />
+      </div>
       <div className="dropdown dropdown-end">
         <div
           tabIndex={0}
@@ -13,8 +40,10 @@ const ProfileNav = () => {
         >
           <div className="w-10 rounded-full">
             <img
-              alt="Tailwind CSS Navbar component"
-              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              src={
+                user.photoURL ||
+                "https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-855.jpg"
+              }
             />
           </div>
         </div>
@@ -22,12 +51,10 @@ const ProfileNav = () => {
           tabIndex={0}
           className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li>
-            <a className="justify-between">
-              Profile
-            </a>
+          <li onClick={handleProfilePage}>
+            <a className="justify-between">Profile</a>
           </li>
-          <li>
+          <li onClick={handleUserLogout}>
             <a>Logout</a>
           </li>
         </ul>

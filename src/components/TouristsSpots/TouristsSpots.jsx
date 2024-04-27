@@ -3,18 +3,18 @@ import TourCard from "../TourCard/TourCard";
 import { AuthContext } from "../../Auth/AuthProvider";
 
 const TouristsSpots = () => {
-  const {data,country, setCountry,filter,setFilter } = useContext(AuthContext);
+  const { data, country, setCountry, filter, setFilter } =
+    useContext(AuthContext);
   useEffect(() => {
     setCountry(localStorage.getItem("country"));
-    const result = data.filter(item => item.country_Name === country);
+    const result = data.filter((item) => item.country_Name === country);
     setFilter(result);
-  },[country]);
+  }, [country]);
   const handleCountryType = (country) => {
     const countryName = country.target.value;
     localStorage.setItem("country", countryName);
     setCountry(countryName);
   };
-  console.log(filter)
   return (
     <div className="flex flex-col gap-5 mt-24">
       <div className="text-center mb-10">
@@ -29,14 +29,14 @@ const TouristsSpots = () => {
         </p>
       </div>
       <div className="text-center">
-        <h1 className="text-xl font-light mb-5">Pick Your Travel Country</h1>
+        <h1 className="text-xl font-light mb-5">
+          Pick Your Travel Country <span className="font-bold text-primary">{country}</span>
+        </h1>
         <select
           className="select select-bordered w-full max-w-xs"
           onChange={handleCountryType}
         >
-          <option disabled defaultValue>
-            Country Name
-          </option>
+          <option disabled>Pick Your Travel Country</option>
           <option>France</option>
           <option>Spain</option>
           <option>Italy</option>
@@ -46,10 +46,10 @@ const TouristsSpots = () => {
           <option disabled>Comming Soon...</option>
         </select>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-10 py-5 mt-8">
-        {
-          filter.map(tour => <TourCard key={tour._id} tour={tour} />)
-        }
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:px-10 py-5 mt-8">
+        {filter.map((tour) => (
+          <TourCard key={tour._id} tour={tour} />
+        ))}
       </div>
     </div>
   );

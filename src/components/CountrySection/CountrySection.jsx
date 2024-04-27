@@ -1,7 +1,13 @@
+import { useEffect, useState } from "react";
 import CountryCard from "../CountryCard/CountryCard";
 
 const CountrySection = () => {
-
+  const [countrys, setCountrys] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:4000/countrys")
+      .then((res) => res.json())
+      .then((data) => setCountrys(data));
+  }, []);
   return (
     <div className="flex flex-col gap-5 mt-24">
       <div className="text-center mb-10">
@@ -15,10 +21,11 @@ const CountrySection = () => {
           odit quo necessitatibus sed.
         </p>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-10 py-5">
-        <CountryCard />
-        <CountryCard />
+        {countrys.map((country) => (
+          <CountryCard key={country._id} country={country} />
+        ))}
       </div>
     </div>
   );

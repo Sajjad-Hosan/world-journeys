@@ -8,8 +8,13 @@ import "../../styles.css";
 // import required modules
 import { Pagination, Mousewheel } from "swiper/modules";
 import SliderCard from "../SliderCard/SliderCard";
+import { useContext } from "react";
+import { AuthContext } from "../../Auth/AuthProvider";
 
 const Slider = () => {
+  const { data } = useContext(AuthContext);
+  const filter = data.slice(0, 8);
+  console.log(filter);
   return (
     <div className="h-[520px] w-full">
       <Swiper
@@ -23,15 +28,11 @@ const Slider = () => {
         modules={[Pagination, Mousewheel]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard />
-        </SwiperSlide>
+        {filter.map((item) => (
+          <SwiperSlide key={item._id}>
+            <SliderCard item={item} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

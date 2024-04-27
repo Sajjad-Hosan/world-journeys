@@ -9,6 +9,8 @@ import ViewPage from "../pages/ViewPage/ViewPage";
 import UpdatePage from "../pages/UpdatePage/UpdatePage";
 import MyLists from "../pages/MyLists/MyLists";
 import AllSpots from "../pages/AllSpots/AllSpots";
+import CountryCard from "../components/CountryCard/CountryCard";
+import CountryCards from "../pages/CountryCards/CountryCards";
 
 const routes = createBrowserRouter([
   {
@@ -25,6 +27,11 @@ const routes = createBrowserRouter([
         path: "/allSpots",
         // loader: () => fetch("http://localhost:4000/tourists"),
         element: <AllSpots />,
+      },
+      {
+        path: "/:countryName/cards",
+        loader: () => fetch('http://localhost:4000/tourists'),
+        element: <CountryCards />,
       },
       {
         path: "/addSpot",

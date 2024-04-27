@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import "./styles.css";
+import "../../styles.css";
 
 // import required modules
 import { Pagination, Mousewheel, Scrollbar } from "swiper/modules";
@@ -25,7 +25,7 @@ const GuidesSection = () => {
           odit quo necessitatibus sed.
         </p>
       </div>
-      <div className="mt-8 w-full">
+      <div className="mt-8 h-[300px] w-full">
         <Swiper
           slidesPerView={2}
           mousewheel={true}

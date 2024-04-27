@@ -71,7 +71,7 @@ const Register = () => {
       .catch((e) => {
         Swal.fire({
           title: "Register Error",
-          Text: e.message,
+          text: `${e.message}`,
           icon: "error",
         });
       });
@@ -84,7 +84,9 @@ const Register = () => {
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((data) => {console.log(data)});
+      .then((data) => {
+        console.log(data);
+      });
   };
   const handleGooglePop = () => {
     googlePopup()
@@ -97,7 +99,7 @@ const Register = () => {
       .catch((e) => {
         Swal.fire({
           title: "Google Error",
-          Text: e.message,
+          text: `${e.message}`,
           icon: "error",
         });
       });
@@ -113,7 +115,7 @@ const Register = () => {
       .catch((e) => {
         Swal.fire({
           title: "Github Error",
-          Text: e.message,
+          text: `${e.message}`,
           icon: "error",
         });
       });

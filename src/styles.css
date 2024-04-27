@@ -1,0 +1,16 @@
+.swiper {
+    width: 95%;
+    height: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+

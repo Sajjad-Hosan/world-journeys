@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider";
-import Slider from "../../components/Slider/Slider";
+import Slider from "../../components/Slider/Sliders";
 import TouristsSpots from "../../components/TouristsSpots/TouristsSpots";
 import CountrySection from "../../components/CountrySection/CountrySection";
 import GuidesSection from "../../components/GuidesSection/GuidesSection";

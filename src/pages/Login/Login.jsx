@@ -32,7 +32,7 @@ const Login = () => {
       .catch((e) => {
         Swal.fire({
           title: "Login Error",
-          Text: e.message,
+          text: `${e.message}`,
           icon: "error",
         });
       });
@@ -48,7 +48,7 @@ const Login = () => {
       .catch((e) => {
         Swal.fire({
           title: "Google Error",
-          Text: e.message,
+          text: `${e.message}`,
           icon: "error",
         });
       });
@@ -64,7 +64,7 @@ const Login = () => {
       .catch((e) => {
         Swal.fire({
           title: "Github Error",
-          Text: e.message,
+          text: `${e.message}`,
           icon: "error",
         });
       });

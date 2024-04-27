@@ -10,7 +10,7 @@ const Footer = () => {
   };
   return (
     <div className="my-10">
-      <footer className="bg-white">
+      <footer className="">
         <div className=" max-w-screen-xl space-y-8 px-4 sm:px-6 lg:space-y-16 lg:px-8">
           <div className="flex gap-8 items-center justify-between flex-wrap">
             <div>

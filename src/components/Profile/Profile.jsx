@@ -13,7 +13,7 @@ const Profile = () => {
           <div className="flex flex-col gap-5 items-center">
             <button
               onClick={() => setUpdate(!update)}
-              className="absolute top-7 right-8 btn btn-primary btn-outline px-10"
+              className="absolute top-7 right-8 btn btn-primary btn-outline px-10 font-light"
             >
               <FaPen /> Update
             </button>
@@ -29,23 +29,26 @@ const Profile = () => {
               <form className="w-full md:w-1/2 space-y-4">
                 <input
                   type="text"
-                  className="input input-bordered w-full"
+                  defaultValue={user.displayName}
+                  className="input input-bordered w-full font-montserrat font-semibold"
                   placeholder="write your name"
                 />
                 <input
                   type="email"
-                  className="input input-bordered w-full"
+                  defaultValue={user.email}
+                  className="input input-bordered w-full font-montserrat font-semibold"
                   placeholder="write your email"
                 />
                 <input
                   type="text"
-                  className="input input-bordered w-full"
+                  defaultValue={user.photoURL}
+                  className="input input-bordered w-full font-montserrat font-semibold"
                   placeholder="write photoUrl"
                 />
                 <input
                   type="submit"
                   value="Update"
-                  className="btn btn-success btn-outline px-10"
+                  className="btn btn-success btn-outline px-10 font-light"
                 />
               </form>
             ) : (
@@ -68,7 +71,7 @@ const Profile = () => {
 
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn btn-neutral px-10">Close</button>
+              <button className="btn btn-neutral px-10 font-light">Close</button>
             </form>
           </div>
         </div>

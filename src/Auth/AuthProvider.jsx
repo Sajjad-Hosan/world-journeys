@@ -5,11 +5,13 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  GithubAuthProvider,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import PropTypes from "prop-types";
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
 import { createContext, useEffect, useState } from "react";
 import app from "../services/firebase/firebase";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {

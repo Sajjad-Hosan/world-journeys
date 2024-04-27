@@ -2,7 +2,7 @@ import CountryCard from "../CountryCard/CountryCard";
 
 const CountrySection = () => {
   return (
-    <div className="flex flex-col gap-5 mt-8">
+    <div className="flex flex-col gap-5 mt-24">
       <div className="text-center mb-10">
         <h1 className="text-3xl font-semibold">Country Section</h1>
         <p className="text-md mt-3 font-semibold font-montserrat">

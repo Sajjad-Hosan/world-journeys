@@ -10,6 +10,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import img from "../../assets/picture/loginPic.svg";
 import { AuthContext } from "../../Auth/AuthProvider";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
   const { loginUser, googlePopup, githubPopup } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ const Login = () => {
           title: "Google Login",
           icon: "success",
         });
+        navigate("/");
       })
       .catch((e) => {
         Swal.fire({
@@ -60,6 +62,7 @@ const Login = () => {
           title: "Github Login",
           icon: "success",
         });
+        navigate("/");
       })
       .catch((e) => {
         Swal.fire({
@@ -77,6 +80,9 @@ const Login = () => {
   };
   return (
     <div>
+       <Helmet>
+        <title>World Journeys || Login</title>
+      </Helmet>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse gap-10">
           <div className="text-center w-full">

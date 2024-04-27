@@ -13,7 +13,7 @@ import { Pagination, Mousewheel, Scrollbar } from "swiper/modules";
 
 const GuidesSection = () => {
   return (
-    <div className="flex flex-col gap-5 mt-10 mb-10">
+    <div className="flex flex-col gap-5 mt-24 mb-28">
       <div className="text-center">
         <h1 className="text-3xl font-semibold">Our Guides</h1>
         <p className="text-md mt-3 font-semibold font-montserrat">

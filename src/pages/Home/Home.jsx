@@ -5,6 +5,7 @@ import Slider from "../../components/Slider/Sliders";
 import TouristsSpots from "../../components/TouristsSpots/TouristsSpots";
 import CountrySection from "../../components/CountrySection/CountrySection";
 import GuidesSection from "../../components/GuidesSection/GuidesSection";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const { setData } = useContext(AuthContext);
@@ -21,6 +22,9 @@ const Home = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>World Journeys || Home</title>
+      </Helmet>
         <Slider/>
         <TouristsSpots/>
         <CountrySection/>

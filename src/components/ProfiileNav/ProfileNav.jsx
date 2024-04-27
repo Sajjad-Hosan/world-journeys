@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import Profile from "../Profile/Profile";
+import ThemeNav from "../ThemeNav/ThemeNav";
 
 const ProfileNav = () => {
   const { user, logoutUser } = useContext(AuthContext);
@@ -27,12 +28,16 @@ const ProfileNav = () => {
   const handleProfilePage = () => {
     document.getElementById("profile_page").showModal();
   };
+  const handleHandleTheme = () => {
+    document.getElementById("theme_page").showModal();
+  };
   return (
     <div>
       <div className="absolute">
         <Profile />
+        <ThemeNav/>
       </div>
-      <div className="dropdown dropdown-end">
+      <div className="dropdown dropdown-end z-10">
         <div
           tabIndex={0}
           role="button"
@@ -53,6 +58,9 @@ const ProfileNav = () => {
         >
           <li onClick={handleProfilePage}>
             <a className="justify-between">Profile</a>
+          </li>
+          <li onClick={handleHandleTheme}>
+            <a className="justify-between">Themes</a>
           </li>
           <li onClick={handleUserLogout}>
             <a>Logout</a>

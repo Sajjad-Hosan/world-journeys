@@ -1,3 +1,4 @@
+import { Typewriter } from "react-simple-typewriter";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 
 const Footer = () => {
@@ -15,7 +16,17 @@ const Footer = () => {
           <div className="flex gap-8 items-center justify-between flex-wrap">
             <div>
               <div className="text-teal-600">
-                <h1 className="text-3xl">World Journeys</h1>
+                <h1 className="text-3xl">
+                  <Typewriter
+                    words={["World Journeys", "Always in Your", "Care"]}
+                    loop={5}
+                    cursor
+                    cursorStyle="_"
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                  />
+                </h1>
               </div>
 
               <p className="mt-4 max-w-xs text-gray-500">
@@ -125,7 +136,10 @@ const Footer = () => {
             </div>
             <div className="">
               <h1 className="text-3xl mb-3">Contact Us</h1>
-              <form className="w-[500px] space-y-4" onSubmit={handleContactInfo}>
+              <form
+                className="md:w-[500px] space-y-4"
+                onSubmit={handleContactInfo}
+              >
                 <input
                   type="text"
                   className="input input-bordered w-full "

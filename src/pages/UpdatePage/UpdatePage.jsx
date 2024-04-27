@@ -25,6 +25,7 @@ const UpdatePage = () => {
     const countryName = form.Country_name.value;
     const locationName = form.location_name.value;
     const shortDes = form.short_des.value;
+    const description = form.description.value;
     const avgCost = form.avg_cost.value;
     const travelTime = form.travel_time.value;
     const photoUrl = form.photoUrl.value;
@@ -35,6 +36,7 @@ const UpdatePage = () => {
       countryName,
       locationName,
       shortDes,
+      description,
       avgCost,
       travelTime,
       photoUrl,
@@ -42,21 +44,20 @@ const UpdatePage = () => {
       totalVisitor,
     };
     //
-   fetch(`http://localhost:4000/tourist/${_id}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(touristsDetails),
-      })
-      .then(() => {
+    fetch(`http://localhost:4000/tourist/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(touristsDetails),
+    }).then(() => {
       Swal.fire({
         title: "Create",
         Text: "Data has added to database!",
         icon: "success",
       });
       navigate(-1);
-    })
+    });
     form.reset();
   };
   return (

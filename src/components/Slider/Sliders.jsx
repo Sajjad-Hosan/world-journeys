@@ -14,7 +14,6 @@ import { AuthContext } from "../../Auth/AuthProvider";
 const Slider = () => {
   const { data } = useContext(AuthContext);
   const filter = data.slice(0, 8);
-  console.log(filter);
   return (
     <div className="h-[520px] w-full">
       <Swiper

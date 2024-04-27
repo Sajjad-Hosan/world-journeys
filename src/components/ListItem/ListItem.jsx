@@ -8,11 +8,11 @@ const ListItem = () => {
         <td>Hart Hagerty</td>
         <td>Desktop Support Technician</td>
         <td>Purple</td>
-        <th>
-          <button className="btn mx-4 btn-primary tooltip">
+        <th className="flex flex-col md:flex-row gap-2 md:gap-4">
+          <button className="btn btn-sm md:btn-md btn-primary">
             <FaTrash />
           </button>
-          <button className="btn btn-neutral">
+          <button className="btn btn-sm md:btn-md btn-neutral">
             <FaPenToSquare />
           </button>
         </th>

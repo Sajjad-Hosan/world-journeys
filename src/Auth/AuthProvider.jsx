@@ -11,19 +11,19 @@ import {
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
 import app from "../services/firebase/firebase";
-import { Navigate, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
+  const auth = getAuth(app);
   const [user, setUser] = useState(null);
   const [data, setData] = useState([]);
-  const [filter,setFilter] = useState([]);
-  const [country,setCountry] = useState('');
+  const [add, setAdd] = useState([]);
+  const [filter, setFilter] = useState([]);
+  const [country, setCountry] = useState("");
   const [wait, setWait] = useState(true);
-  const [modal, setModal] = useState(false);
-  const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+
   // firebase all functions
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (newUser) => {
@@ -59,8 +59,9 @@ const AuthProvider = ({ children }) => {
     filter,
     data,
     wait,
+    add,
     country,
-    modal,
+    setAdd,
     setFilter,
     setCountry,
     setUser,
@@ -70,7 +71,6 @@ const AuthProvider = ({ children }) => {
     logoutUser,
     googlePopup,
     githubPopup,
-    setModal,
   };
   return (
     <AuthContext.Provider value={authValues}>{children}</AuthContext.Provider>

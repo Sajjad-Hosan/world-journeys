@@ -46,14 +46,14 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-56"
+              className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-56"
             >
               {navLinks}
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">
             <Typewriter
-              words={["World Journeys", "World", "Journeys"]}
+              words={["World Journeys", "Always in Your", "Care"]}
               loop={5}
               cursor
               cursorStyle="_"

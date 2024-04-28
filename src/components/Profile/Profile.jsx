@@ -20,7 +20,7 @@ const Profile = () => {
             <div className="w-44 h-44 rounded-2xl">
               <img
                 src={
-                  user.photoURL ||
+                  user?.photoURL ||
                   "https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-855.jpg"
                 }
               />
@@ -29,19 +29,19 @@ const Profile = () => {
               <form className="w-full md:w-1/2 space-y-4">
                 <input
                   type="text"
-                  defaultValue={user.displayName}
+                  defaultValue={user?.displayName || 'no name'}
                   className="input input-bordered w-full font-montserrat font-semibold"
                   placeholder="write your name"
                 />
                 <input
                   type="email"
-                  defaultValue={user.email}
+                  defaultValue={user?.email || "noemail@nomail.com"}
                   className="input input-bordered w-full font-montserrat font-semibold"
                   placeholder="write your email"
                 />
                 <input
                   type="text"
-                  defaultValue={user.photoURL}
+                  defaultValue={user?.photoURL || 'no photo url'}
                   className="input input-bordered w-full font-montserrat font-semibold"
                   placeholder="write photoUrl"
                 />

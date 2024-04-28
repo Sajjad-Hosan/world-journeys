@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const TourCard = ({tour}) => {
   const {_id,image,tourists_spot_name,location,short_description} = tour;
@@ -24,5 +25,7 @@ const TourCard = ({tour}) => {
     </>
   );
 };
-
+TourCard.propTypes = {
+  tour: PropTypes.object,
+};
 export default TourCard;

@@ -7,13 +7,14 @@ import {
   FaGoogle,
   FaTwitter,
 } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/picture/loginPic.svg";
 import { AuthContext } from "../../Auth/AuthProvider";
 import { Helmet } from "react-helmet-async";
 const Login = () => {
   const { loginUser, googlePopup, githubPopup } = useContext(AuthContext);
   const navigate = useNavigate();
+  const {state} = useLocation();
   const [show, setShow] = useState(false);
   const handleUserLogin = (e) => {
     e.preventDefault();
@@ -22,13 +23,12 @@ const Login = () => {
     const password = form.password.value;
     //
     loginUser(email, password)
-      .then((res) => {
+      .then(() => {
         Swal.fire({
           title: "Login",
           icon: "success",
         });
-        navigate("/");
-        // console.log(data);
+        navigate(state || "/");
       })
       .catch((e) => {
         Swal.fire({
@@ -45,7 +45,7 @@ const Login = () => {
           title: "Google Login",
           icon: "success",
         });
-        navigate("/");
+        navigate(state || "/");
       })
       .catch((e) => {
         Swal.fire({
@@ -62,7 +62,7 @@ const Login = () => {
           title: "Github Login",
           icon: "success",
         });
-        navigate("/");
+        navigate(state || "/");
       })
       .catch((e) => {
         Swal.fire({

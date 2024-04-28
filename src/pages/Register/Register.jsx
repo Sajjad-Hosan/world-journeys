@@ -1,5 +1,4 @@
 import Swal from "sweetalert2/dist/sweetalert2.js";
-
 import {
   FaEye,
   FaEyeSlash,
@@ -9,13 +8,14 @@ import {
 } from "react-icons/fa6";
 import { useContext, useState } from "react";
 import img from "../../assets/picture/registerPic.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet-async";
 const Register = () => {
   const { createUser, googlePopup, githubPopup } = useContext(AuthContext);
   const navigate = useNavigate();
+  const {state} = useLocation();
   const [show, setShow] = useState(false);
   const handleUserRegister = (e) => {
     e.preventDefault();
@@ -67,7 +67,7 @@ const Register = () => {
           title: "Register Complete!",
           icon: "success",
         });
-        navigate("/");
+        navigate(state || "/");
       })
       .catch((e) => {
         Swal.fire({
@@ -96,7 +96,7 @@ const Register = () => {
           title: "Google Login",
           icon: "success",
         });
-        navigate("/");
+        navigate(state || "/");
       })
       .catch((e) => {
         Swal.fire({
@@ -113,7 +113,7 @@ const Register = () => {
           title: "Github Login",
           icon: "success",
         });
-        navigate("/");
+        navigate(state || "/");
       })
       .catch((e) => {
         Swal.fire({

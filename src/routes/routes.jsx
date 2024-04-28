@@ -9,10 +9,10 @@ import ViewPage from "../pages/ViewPage/ViewPage";
 import UpdatePage from "../pages/UpdatePage/UpdatePage";
 import MyLists from "../pages/MyLists/MyLists";
 import AllSpots from "../pages/AllSpots/AllSpots";
-import CountryCard from "../components/CountryCard/CountryCard";
 import CountryCards from "../pages/CountryCards/CountryCards";
 import UserSpotUpdate from "../pages/UserSpotUpdate/UserSpotUpdate";
 import UserSpotView from "../pages/UserSpotView/UserSpotView";
+import PrivateRoute from "../services/Private/PrivateRoute";
 
 const routes = createBrowserRouter([
   {
@@ -28,7 +28,11 @@ const routes = createBrowserRouter([
       {
         path: "/allSpots",
         loader: () => fetch("http://localhost:4000/user-spots"),
-        element: <AllSpots />,
+        element: (
+          <PrivateRoute>
+            <AllSpots />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/:countryName/cards",
@@ -37,35 +41,60 @@ const routes = createBrowserRouter([
       },
       {
         path: "/addSpot",
-        element: <AddSpot />,
+        element: (
+          <PrivateRoute>
+            <AddSpot />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myList",
         loader: () => fetch("http://localhost:4000/user-spots"),
-        element: <MyLists />,
+        element: (
+          <PrivateRoute>
+            <MyLists />
+          </PrivateRoute>
+        ),
       },
       {
         path: `/tourist/:id`,
         loader: ({ params }) =>
           fetch(`http://localhost:4000/tourist/${params.id}`),
-        element: <ViewPage />,
+        element: (
+          <PrivateRoute>
+            <ViewPage />
+          </PrivateRoute>
+        ),
       },
       {
         path: `/update/:id`,
         loader: ({ params }) =>
           fetch(`http://localhost:4000/tourist/${params.id}`),
-        element: <UpdatePage />,
+        element: (
+          <PrivateRoute>
+            <UpdatePage />
+          </PrivateRoute>
+        ),
       },
       {
         path: `/update-user-spot/:id`,
         loader: ({ params }) =>
           fetch(`http://localhost:4000/user-spot/${params.id}`),
-        element: <UserSpotUpdate />,
+        element: (
+          <PrivateRoute>
+            <UserSpotUpdate />
+          </PrivateRoute>
+        ),
       },
       {
         path: `/user-spot/:id`,
-        loader: ({ params }) => fetch(`http://localhost:4000/user-spot/${params.id}`),
-        element: <UserSpotView />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/user-spot/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <UserSpotView />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

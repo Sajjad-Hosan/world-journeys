@@ -6,16 +6,16 @@ const UserSpotUpdate = () => {
   const navigate = useNavigate();
   const {
     _id,
-    spotName,
-    countryName,
-    locationName,
-    shortDes,
+    image,
+    tourists_spot_name,
+    country_Name,
+    location,
+    short_description,
     description,
-    avgCost,
-    travelTime,
-    photoUrl,
+    average_cost,
     seasonality,
-    totalVisitor,
+    travel_time,
+    totalVisitorsPerYear,
     userName,
     userEmail,
   } = data;
@@ -74,7 +74,7 @@ const UserSpotUpdate = () => {
         <input
           type="text"
           name="spot_name"
-          defaultValue={spotName}
+          defaultValue={tourists_spot_name}
           placeholder="tourists spot name"
           className="input input-bordered w-full font-medium "
         />
@@ -82,14 +82,14 @@ const UserSpotUpdate = () => {
           <input
             type="text"
             name="Country_name"
-          defaultValue={countryName}
+          defaultValue={country_Name}
             placeholder="country name"
             className="input input-bordered w-full font-medium "
           />
           <input
             type="text"
             name="location_name"
-            defaultValue={locationName}
+            defaultValue={location}
             placeholder="location name"
             className="input input-bordered w-full font-medium "
           />
@@ -97,7 +97,7 @@ const UserSpotUpdate = () => {
         <input
           type="text"
           name="short_des"
-          defaultValue={shortDes}
+          defaultValue={short_description}
           placeholder="short description"
           className="input input-bordered w-full font-medium "
         />
@@ -105,14 +105,14 @@ const UserSpotUpdate = () => {
           <input
             type="text"
             name="avg_cost"
-          defaultValue={avgCost}
+          defaultValue={average_cost}
             placeholder="average cost"
             className="input input-bordered w-full font-medium "
           />
           <input
             type="text"
             name="travel_time"
-          defaultValue={travelTime}
+          defaultValue={travel_time}
             placeholder="travel time"
             className="input input-bordered w-full font-medium "
           />
@@ -120,7 +120,7 @@ const UserSpotUpdate = () => {
         <input
           type="text"
           name="photoUrl"
-          defaultValue={photoUrl}
+          defaultValue={image}
           placeholder="photoUrl"
           className="input input-bordered w-full font-medium "
         />
@@ -135,7 +135,7 @@ const UserSpotUpdate = () => {
           <input
             type="text"
             name="total_visitor"
-          defaultValue={totalVisitor}
+          defaultValue={totalVisitorsPerYear}
             placeholder="total visitor per year"
             className="input input-bordered w-full font-medium "
           />

@@ -22,7 +22,7 @@ const CountrySection = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-10 py-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:px-10 py-5">
         {countrys.map((country) => (
           <CountryCard key={country._id} country={country} />
         ))}

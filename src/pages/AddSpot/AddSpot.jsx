@@ -138,7 +138,7 @@ const AddSpot = () => {
         />
         <textarea
           name="description"
-          className="w-full col-span-2 textarea textarea-bordered md:mt-5"
+          className="w-full col-span-2 textarea textarea-bordered mt-5 md:mt-0"
           placeholder="description..."
         ></textarea>
         <div className="col-span-2 mx-auto my-5">

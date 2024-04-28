@@ -1,8 +1,9 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const UserSpotView = () => {
   const data = useLoaderData();
   const {
+    _id,
     image,
     tourists_spot_name,
     country_Name,
@@ -40,6 +41,9 @@ const UserSpotView = () => {
             Visitors Per Year : {totalVisitorsPerYear}
           </p>
           <p className="text-xl font-semibold">seasonality: {seasonality}</p>
+          <div className="card-actions justify-end">
+            <Link to={`/update-user-spot/${_id}`} className="btn btn-neutral px-12 font-pacifico font-light">Update</Link>
+          </div>
         </div>
       </div>
     </div>

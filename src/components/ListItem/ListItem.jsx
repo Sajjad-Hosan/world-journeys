@@ -49,7 +49,7 @@ const ListItem = ({ idx, item, setDatas, datas }) => {
             <FaTrash />
           </button>
           <Link
-            to={`/user-spot/${_id}`}
+            to={`/update-user-spot/${_id}`}
             className="btn btn-sm md:btn-md btn-neutral"
           >
             <FaPenToSquare />

@@ -1,6 +1,8 @@
 import Swal from "sweetalert2/dist/sweetalert2";
+import PropTypes from "prop-types";
 
-const GuideCard = () => {
+const GuideCard = ({ item }) => {
+  const {name,image,email,customer_review} = item;
   const handleGuideDetail = () => {
     Swal.fire({
       title: "Processing",
@@ -9,17 +11,21 @@ const GuideCard = () => {
   };
   return (
     <>
-      <div className="w-full h-96 card" onClick={handleGuideDetail}>
+      <div
+        className="w-[500px] h-full card rounded-xl overflow-hidden"
+        onClick={handleGuideDetail}
+      >
         <img
-          src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+          src={image}
           alt="Shoes"
+          className="w-full h-[400px] object-cover cursor-grab"
         />
-        <h1 className="absolute bottom-2 left-2 bg-neutral text-xs font-light text-white px-8 py-2 rounded-lg">
-          Jone Deo
-        </h1>
+        <h1 className="absolute bottom-4 left-4 bg-neutral text-sm font-light text-white px-8 py-4 rounded-lg">{name}</h1>
       </div>
     </>
   );
 };
-
+GuideCard.propTypes = {
+  item: PropTypes.object,
+};
 export default GuideCard;

@@ -1,17 +1,22 @@
 import GuideCard from "../GuideCard/GuideCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
 import "../../styles.css";
-
 // import required modules
 import { Pagination, Mousewheel, Scrollbar } from "swiper/modules";
+import { useEffect, useState } from "react";
+
 
 const GuidesSection = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:4000/guides")
+      .then((res) => res.json())
+      .then((result) => setData(result));
+  });
   return (
     <div className="flex flex-col gap-5 mt-24 mb-28">
       <div className="text-center">
@@ -25,12 +30,12 @@ const GuidesSection = () => {
           odit quo necessitatibus sed.
         </p>
       </div>
-      <div className="mt-8 h-[300px] w-full">
+      <div className="mt-8 md:h-[400px] w-full">
         <Swiper
-          slidesPerView={2}
+          slidesPerView={1}
           mousewheel={true}
           centeredSlides={true}
-          spaceBetween={40}
+          spaceBetween={20}
           pagination={{
             type: "fraction",
           }}
@@ -40,15 +45,11 @@ const GuidesSection = () => {
           modules={[Pagination, Mousewheel, Scrollbar]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <GuideCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <GuideCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <GuideCard />
-          </SwiperSlide>
+          {data.map((item) => (
+            <SwiperSlide key={item._id}>
+              <GuideCard item={item} />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

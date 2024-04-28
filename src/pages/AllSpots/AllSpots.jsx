@@ -15,7 +15,7 @@ const AllSpots = () => {
     setDatas(filter);
   }, [email, loaderData]);
   return (
-    <div className="grid md:grid-cols-2 gap-6 place-items-center">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
       {datas.length > 0 ? (
         datas.map((item) => <UserCard key={item._id} tour={item} />)
       ) : (

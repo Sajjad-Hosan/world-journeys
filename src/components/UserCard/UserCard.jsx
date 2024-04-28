@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const UserCard = ({ tour }) => {
-  console.log(tour);
   const { _id, image, tourists_spot_name, location, short_description } = tour;
   return (
     <>

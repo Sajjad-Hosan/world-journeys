@@ -6,6 +6,7 @@ import TouristsSpots from "../../components/TouristsSpots/TouristsSpots";
 import CountrySection from "../../components/CountrySection/CountrySection";
 import GuidesSection from "../../components/GuidesSection/GuidesSection";
 import { Helmet } from "react-helmet-async";
+import AboutUs from "../../components/AboutUs/AboutUs";
 
 const Home = () => {
   const { setData } = useContext(AuthContext);
@@ -28,7 +29,8 @@ const Home = () => {
       <Slider />
       <TouristsSpots />
       <CountrySection />
-      <GuidesSection />
+      <GuidesSection/>
+      <AboutUs/>
     </div>
   );
 };

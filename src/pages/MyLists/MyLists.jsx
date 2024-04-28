@@ -28,7 +28,7 @@ const MyLists = () => {
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="relative">
             {datas.length > 0 ? (
               datas.map((item, idx) => (
                 <ListItem

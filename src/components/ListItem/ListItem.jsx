@@ -2,7 +2,6 @@ import { FaPenToSquare, FaTrash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2/dist/sweetalert2";
 import PropTypes from "prop-types";
-import { Slide } from "react-awesome-reveal";
 
 const ListItem = ({ idx, item, setDatas, datas }) => {
   const { _id, tourists_spot_name, country_name, location } = item;
@@ -37,7 +36,6 @@ const ListItem = ({ idx, item, setDatas, datas }) => {
   };
   return (
     <>
-      <Slide damping={0.1}>
         <tr className="hover font-montserrat">
           <th>{idx}</th>
           <td>{tourists_spot_name}</td>
@@ -58,7 +56,6 @@ const ListItem = ({ idx, item, setDatas, datas }) => {
             </Link>
           </th>
         </tr>
-      </Slide>
     </>
   );
 };

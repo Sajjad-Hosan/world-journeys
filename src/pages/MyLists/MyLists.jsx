@@ -3,7 +3,6 @@ import ListItem from "../../components/ListItem/ListItem";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
 import NoData from "../../components/NoData/NoData";
-import { Slide } from "react-awesome-reveal";
 
 const MyLists = () => {
   const loaderData = useLoaderData();
@@ -31,8 +30,7 @@ const MyLists = () => {
           </thead>
           <tbody className="relative">
             {datas.length > 0 ? (
-              <Slide dumping={0.2}>
-              {datas.map((item, idx) => (
+              datas.map((item, idx) => (
                 <ListItem
                   key={idx}
                   idx={idx}
@@ -40,8 +38,7 @@ const MyLists = () => {
                   datas={datas}
                   setDatas={setDatas}
                   />
-              ))}
-                  </Slide>
+              ))
             ) : (
               <NoData />
             )}

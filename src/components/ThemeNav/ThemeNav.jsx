@@ -44,6 +44,7 @@ const ThemeNav = () => {
   const handleThemeName = (tme) => {
     const result = tme.target.value;
     localStorage.setItem("theme", result);
+    setTheme(result);
   };
   return (
     <>
@@ -51,7 +52,7 @@ const ThemeNav = () => {
         <div className="modal-box relative">
           <div className="modal-action flex items-center justify-between mb-5">
               <Bounce dumping={0.1}>
-            <h1 className="text-2x">Choses Your Theme</h1>
+            <h1 className="text-xl flex gap-2 items-center">Choses Your Theme <span className="font-montserrat font-medium">({theme})</span></h1>
             <form method="dialog">
                 <button className="btn btn-ghost px-8 font-light">Close</button>
             </form>

@@ -32,10 +32,10 @@ const ViewPage = () => {
         </Slide>
         <div className="md:px-10 py-8 md:w-[50%] font-montserrat space-y-3">
           <div className="w-full flex items-center justify-between">
-            <h2 className="card-title text-3xl font-semibold">
+            <h2 className="md:text-3xl font-semibold">
               {tourists_spot_name} <p className="font-pacifico">({location})</p>
             </h2>
-            <p className="text-xl font-pacifico">{travel_time}</p>
+            <p className="text-xl font-pacifico input input-bordered pt-2">{travel_time}</p>
           </div>
           <h2 className="text-xl font-medium">Country: {country_Name}</h2>
           <p className="text-sm">{description}</p>

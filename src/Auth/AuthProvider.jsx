@@ -21,9 +21,16 @@ const AuthProvider = ({ children }) => {
   const [filter, setFilter] = useState([]);
   const [country, setCountry] = useState("");
   const [wait, setWait] = useState(true);
+  const [loading,setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
-
+// loading showing
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  },2000);
+  return () => clearTimeout(timer);
+},[])
   // firebase all functions
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (newUser) => {
@@ -58,6 +65,7 @@ const AuthProvider = ({ children }) => {
     user,
     filter,
     data,
+    loading,
     wait,
     add,
     country,

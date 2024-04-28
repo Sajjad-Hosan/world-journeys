@@ -33,7 +33,7 @@ const ProfileNav = () => {
   };
   return (
     <div>
-      <div className="absolute">
+      <div className="absolute h-0">
         <Profile />
         <ThemeNav/>
       </div>

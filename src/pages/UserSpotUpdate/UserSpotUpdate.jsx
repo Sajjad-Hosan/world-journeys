@@ -66,110 +66,113 @@ const UserSpotUpdate = () => {
     form.reset();
   };
   return (
-    <div className="px-8 py-4">
-      <h1 className="text-4xl font-semibold">Update User Tourists Spot</h1>
+    <div className="md:px-8 py-4">
+      <Bounce>
+        <h1 className="text-4xl font-semibold">Update User Tourists Spot</h1>
+      </Bounce>
       <form
         onSubmit={handleAddSpot}
-        className="md:grid md:grid-cols-2 gap-5 md:px-10 py-5 my-5 font-montserrat"
+        className=" md:grid md:grid-cols-2 gap-5 md:px-10 py-5 my-5 font-montserrat"
       >
-        <Bounce dumping={0.2}>
+        <input
+          type="text"
+          name="spot_name"
+          defaultValue={tourists_spot_name}
+          placeholder="tourists spot name"
+          className="input input-bordered w-full font-medium "
+        />
+        <div className="flex flex-col md:flex-row gap-5 my-5 md:my-0">
           <input
             type="text"
-            name="spot_name"
-            defaultValue={tourists_spot_name}
-            placeholder="tourists spot name"
-            className="input input-bordered w-full font-medium "
-          />
-          <div className="flex flex-col md:flex-row gap-5 my-5 md:my-0">
-            <input
-              type="text"
-              name="Country_name"
-              defaultValue={country_Name}
-              placeholder="country name"
-              className="input input-bordered w-full font-medium "
-            />
-            <input
-              type="text"
-              name="location_name"
-              defaultValue={location}
-              placeholder="location name"
-              className="input input-bordered w-full font-medium "
-            />
-          </div>
-          <input
-            type="text"
-            name="short_des"
-            defaultValue={short_description}
-            placeholder="short description"
-            className="input input-bordered w-full font-medium "
-          />
-          <div className="flex flex-col md:flex-row gap-5 my-5 md:my-0">
-            <input
-              type="text"
-              name="avg_cost"
-              defaultValue={average_cost}
-              placeholder="average cost"
-              className="input input-bordered w-full font-medium "
-            />
-            <input
-              type="text"
-              name="travel_time"
-              defaultValue={travel_time}
-              placeholder="travel time"
-              className="input input-bordered w-full font-medium "
-            />
-          </div>
-          <input
-            type="text"
-            name="photoUrl"
-            defaultValue={image}
-            placeholder="photoUrl"
-            className="input input-bordered w-full font-medium "
-          />
-          <div className="flex flex-col md:flex-row gap-5 my-5 md:my-0">
-            <input
-              type="text"
-              name="seasonality"
-              defaultValue={seasonality}
-              placeholder="seasonality names"
-              className="input input-bordered w-full font-medium "
-            />
-            <input
-              type="text"
-              name="total_visitor"
-              defaultValue={totalVisitorsPerYear}
-              placeholder="total visitor per year"
-              className="input input-bordered w-full font-medium "
-            />
-          </div>
-          <input
-            type="text"
-            name="user_name"
-            defaultValue={userName}
-            placeholder="write your username"
+            name="Country_name"
+            defaultValue={country_Name}
+            placeholder="country name"
             className="input input-bordered w-full font-medium "
           />
           <input
             type="text"
-            name="user_email"
-            defaultValue={userEmail}
-            placeholder="write your email"
-            className="input input-bordered w-full font-medium  mt-5 md:mt-0"
+            name="location_name"
+            defaultValue={location}
+            placeholder="location name"
+            className="input input-bordered w-full font-medium "
           />
-          <textarea
-            name="description"
-            className="w-full col-span-2 textarea textarea-bordered mt-5"
-            defaultValue={description}
-            placeholder="description..."
-          ></textarea>
-          <div className="col-span-2 mx-auto my-5">
+        </div>
+        <input
+          type="text"
+          name="short_des"
+          defaultValue={short_description}
+          placeholder="short description"
+          className="input input-bordered w-full font-medium "
+        />
+        <div className="flex flex-col md:flex-row gap-5 my-5 md:my-0">
+          <input
+            type="text"
+            name="avg_cost"
+            defaultValue={average_cost}
+            placeholder="average cost"
+            className="input input-bordered w-full font-medium "
+          />
+          <input
+            type="text"
+            name="travel_time"
+            defaultValue={travel_time}
+            placeholder="travel time"
+            className="input input-bordered w-full font-medium "
+          />
+        </div>
+        <input
+          type="text"
+          name="photoUrl"
+          defaultValue={image}
+          placeholder="photoUrl"
+          className="input input-bordered w-full font-medium "
+        />
+        <div className="flex flex-col md:flex-row gap-5 my-5 md:my-0">
+          <input
+            type="text"
+            name="seasonality"
+            defaultValue={seasonality}
+            placeholder="seasonality names"
+            className="input input-bordered w-full font-medium "
+          />
+          <input
+            type="text"
+            name="total_visitor"
+            defaultValue={totalVisitorsPerYear}
+            placeholder="total visitor per year"
+            className="input input-bordered w-full font-medium "
+          />
+        </div>
+        <input
+          type="text"
+          name="user_name"
+          defaultValue={userName}
+          placeholder="write your username"
+          className="input input-bordered w-full font-medium "
+        />
+        <input
+          type="text"
+          name="user_email"
+          defaultValue={userEmail}
+          placeholder="write your email"
+          className="input input-bordered w-full font-medium  mt-5 md:mt-0"
+        />
+        <textarea
+          rows={3}
+          name="description"
+          className="col-span-2 textarea textarea-bordered mt-5 w-full"
+          defaultValue={description}
+          placeholder="description..."
+        ></textarea>
+        <div className="my-5">
+          <Bounce>
             <input
               type="submit"
-              value="Add Spot"
+              value="Update Spot"
               className="btn btn-neutral px-10"
             />
-          </div>
-        </Bounce>
+          </Bounce>
+        </div>
       </form>
     </div>
   );

@@ -3,6 +3,7 @@ import { AuthContext } from "../../Auth/AuthProvider";
 import { FaArrowLeft, FaPen } from "react-icons/fa6";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2/dist/sweetalert2";
+import { Bounce } from "react-awesome-reveal";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -38,10 +39,11 @@ const Profile = () => {
         <div className="modal-box max-w-5xl flex flex-col ">
           <h1 className="text-2xl">{update ? "Update Profile" : "Profile"}</h1>
           <div className="flex flex-col gap-5 items-center">
+
             <button
               onClick={() => setUpdate(!update)}
               className="absolute top-7 right-8 btn btn-primary btn-outline px-10 font-light"
-            >
+              >
               {update ? (
                 <>
                   <FaArrowLeft /> Back
@@ -52,7 +54,7 @@ const Profile = () => {
                 </>
               )}
             </button>
-            <div className="w-48 h-48 rounded-2xl overflow-hidden">
+            <div className="mt-12 w-48 h-48 rounded-2xl overflow-hidden">
               <img
                 src={
                   user?.photoURL ||
@@ -87,11 +89,13 @@ const Profile = () => {
                   className="input input-bordered w-full font-montserrat font-semibold"
                   placeholder="write photoUrl"
                 />
+                <Bounce>
                 <input
                   type="submit"
                   value="Update"
                   className="btn btn-neutral px-10 font-light"
-                />
+                  />
+                  </Bounce>
               </form>
             ) : (
               <div className="flex flex-col gap-3 w-full mt-10">

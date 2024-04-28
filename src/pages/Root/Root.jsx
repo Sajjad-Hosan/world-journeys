@@ -6,16 +6,16 @@ import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
 
 const Root = () => {
-  const { wait } = useContext(AuthContext);
-  if (wait) {
+  const { loading } = useContext(AuthContext);
+  if (loading) {
     return (
-      <div className="flex items-center justify-center">
-        <span className="loading loading-ring loading-lg"></span>
+      <div className="flex items-center justify-center min-h-screen">
+        <span className="loading loading-dots loading-lg"></span>
       </div>
     );
-  }
-  return (
-    <div className="font-pacifico min-h-screen flex gap-5 flex-col justify-between">
+  }else{
+    return (
+      <div className="font-pacifico min-h-screen flex gap-5 flex-col justify-between">
       <Header />
       <div className="px-6">
         <Outlet />
@@ -23,6 +23,7 @@ const Root = () => {
       <Footer />
     </div>
   );
+}
 };
 
 export default Root;

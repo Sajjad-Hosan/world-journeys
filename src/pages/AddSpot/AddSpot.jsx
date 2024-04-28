@@ -54,14 +54,13 @@ const AddSpot = () => {
   };
   return (
     <div className="px-8 py-4">
-      <Slide damping={0.3}>
-      <h1 className="text-4xl font-semibold">Add Tourists Spot</h1>
+      <Slide>
+        <h1 className="text-4xl font-semibold">Add Tourists Spot</h1>
       </Slide>
       <form
         onSubmit={handleAddSpot}
         className="md:grid md:grid-cols-2 gap-5 md:px-10 py-5 my-5 font-montserrat"
       >
-      <Bounce damping={0.3}>
         <input
           type="text"
           name="spotName"
@@ -146,13 +145,14 @@ const AddSpot = () => {
           placeholder="description..."
         ></textarea>
         <div className="col-span-2 mx-auto my-5">
-          <input
-            type="submit"
-            value="Add Spot"
-            className="btn btn-neutral px-10"
-          />
+          <Bounce>
+            <input
+              type="submit"
+              value="Add Spot"
+              className="btn btn-neutral px-10"
+            />
+          </Bounce>
         </div>
-        </Bounce>
       </form>
     </div>
   );

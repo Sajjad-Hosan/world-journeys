@@ -1,4 +1,4 @@
-import { Slide } from "react-awesome-reveal";
+import { Bounce, Slide } from "react-awesome-reveal";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2/dist/sweetalert2";
 
@@ -67,8 +67,6 @@ const UpdatePage = () => {
         onSubmit={handleAddSpot}
         className="md:grid md:grid-cols-2 gap-5 md:px-10 py-5 my-8"
       >
-        <Slide>
-
         <input
           type="text"
           name="spot_name"
@@ -145,14 +143,15 @@ const UpdatePage = () => {
           defaultValue={description}
           rows="6"
         ></textarea>
-        <div className="col-span-2 mx-auto my-5">
-          <input
-            type="submit"
-            value="Update Spot"
-            className="btn btn-neutral px-10"
+        <div className="mx-auto my-5">
+          <Bounce>
+            <input
+              type="submit"
+              value="Update Spot"
+              className="btn btn-neutral px-10"
             />
+          </Bounce>
         </div>
-            </Slide>
       </form>
     </div>
   );

@@ -146,14 +146,14 @@ const Register = () => {
                 type="name"
                 name="name"
                 placeholder="write your name"
-                className="input input-bordered w-full font-semibold"
+                className="input input-bordered w-full font-semibold font-montserrat "
                 required
               />
               <input
                 type="email"
                 name="email"
                 placeholder="write your email"
-                className="input input-bordered w-full font-semibold mt-4"
+                className="input input-bordered w-full font-semibold  font-montserrat mt-4"
                 required
               />
               <div className="relative">
@@ -161,7 +161,7 @@ const Register = () => {
                   type={show ? "text" : "password"}
                   name="password"
                   placeholder="write your password"
-                  className="input input-bordered w-full font-semibold my-4"
+                  className="input input-bordered w-full font-semibold font-montserrat my-4"
                   required
                 />
                 <p
@@ -175,7 +175,7 @@ const Register = () => {
                 type="text"
                 name="photoUrl"
                 placeholder="give photo url here"
-                className="input input-bordered w-full font-semibold mb-1"
+                className="input input-bordered w-full font-semibold  font-montserrat mb-1"
               />
               <label className="text-sm flex items-center mt-3">
                 <input className="mr-2" type="checkbox" />

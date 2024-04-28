@@ -1,10 +1,37 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
-import { FaPen } from "react-icons/fa6";
+import { FaArrowLeft, FaPen } from "react-icons/fa6";
+import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2/dist/sweetalert2";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
   const [update, setUpdate] = useState(false);
+  const handleUserUpdate = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photoUrl = form.photoUrl.value;
+    //
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photoUrl,
+    })
+      .then(() => {
+        Swal.fire({
+          title: "Update Profile",
+          icon: "success",
+        });
+        setUpdate(!update);
+      })
+      .catch((e) => {
+        Swal.fire({
+          title: "Update Error",
+          text: { e },
+          icon: "error",
+        });
+      });
+  };
   return (
     <>
       <dialog id="profile_page" className="modal relative overflow-hidden">
@@ -15,9 +42,17 @@ const Profile = () => {
               onClick={() => setUpdate(!update)}
               className="absolute top-7 right-8 btn btn-primary btn-outline px-10 font-light"
             >
-              <FaPen /> Update
+              {update ? (
+                <>
+                  <FaArrowLeft /> Back
+                </>
+              ) : (
+                <>
+                  <FaPen /> Update
+                </>
+              )}
             </button>
-            <div className="w-44 h-44 rounded-2xl">
+            <div className="w-48 h-48 rounded-2xl overflow-hidden">
               <img
                 src={
                   user?.photoURL ||
@@ -26,44 +61,45 @@ const Profile = () => {
               />
             </div>
             {update ? (
-              <form className="w-full md:w-1/2 space-y-4">
+              <form
+                onSubmit={handleUserUpdate}
+                className="w-full md:w-1/2 space-y-4"
+              >
                 <input
                   type="text"
-                  defaultValue={user?.displayName || 'no name'}
+                  name="name"
+                  defaultValue={user?.displayName || "no name"}
                   className="input input-bordered w-full font-montserrat font-semibold"
                   placeholder="write your name"
                 />
                 <input
                   type="email"
+                  name="email"
                   defaultValue={user?.email || "noemail@nomail.com"}
                   className="input input-bordered w-full font-montserrat font-semibold"
                   placeholder="write your email"
+                  readOnly
                 />
                 <input
                   type="text"
-                  defaultValue={user?.photoURL || 'no photo url'}
+                  name="photoUrl"
+                  defaultValue={user?.photoURL || "no photo url"}
                   className="input input-bordered w-full font-montserrat font-semibold"
                   placeholder="write photoUrl"
                 />
                 <input
                   type="submit"
                   value="Update"
-                  className="btn btn-success btn-outline px-10 font-light"
+                  className="btn btn-neutral px-10 font-light"
                 />
               </form>
             ) : (
               <div className="flex flex-col gap-3 w-full mt-10">
-                <div
-                  htmlFor=""
-                  className="flex items-center gap-5 font-semibold"
-                >
-                  Name : <p className="text-2xl">{user.displayName}</p>
+                <div className="flex items-center gap-5 font-semibold">
+                  Name : <p className="text-2xl">{user?.displayName}</p>
                 </div>
-                <div
-                  htmlFor=""
-                  className="flex items-center gap-5 font-semibold"
-                >
-                  Email : <p className="text-2xl">{user.email}</p>
+                <div className="flex items-center gap-5 font-semibold">
+                  Email : <p className="text-2xl">{user?.email}</p>
                 </div>
               </div>
             )}
@@ -71,7 +107,9 @@ const Profile = () => {
 
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn btn-neutral px-10 font-light">Close</button>
+              <button className="btn btn-neutral px-10 font-light">
+                Close
+              </button>
             </form>
           </div>
         </div>

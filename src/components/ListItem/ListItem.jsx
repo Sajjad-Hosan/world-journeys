@@ -36,7 +36,7 @@ const ListItem = ({ idx, item, setDatas, datas }) => {
   };
   return (
     <>
-      <tr className="hover font-montserrat">
+     <tr className="hover font-montserrat">
         <th>{idx}</th>
         <td>{tourists_spot_name}</td>
         <td>{location}</td>

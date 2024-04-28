@@ -63,6 +63,7 @@ const AddSpot = () => {
           name="spotName"
           placeholder="tourists spot name"
           className="input input-bordered w-full font-medium "
+          required
         />
         <div className="flex flex-col md:flex-row gap-5 my-5 md:my-0">
           <input
@@ -70,11 +71,13 @@ const AddSpot = () => {
             name="countryName"
             placeholder="country name"
             className="input input-bordered w-full font-medium "
+            required
           />
           <input
             type="text"
             name="locationName"
             placeholder="location name"
+            required
             className="input input-bordered w-full font-medium "
           />
         </div>
@@ -101,6 +104,7 @@ const AddSpot = () => {
         <input
           type="text"
           name="photoUrl"
+          required
           placeholder="photoUrl"
           className="input input-bordered w-full font-medium "
         />
@@ -123,16 +127,18 @@ const AddSpot = () => {
           name="user_name"
           placeholder="write your username"
           className="input input-bordered w-full font-medium "
+          required
         />
         <input
           type="text"
           name="user_email"
           placeholder="write your email"
           className="input input-bordered w-full font-medium  mt-5 md:mt-0"
+          required
         />
         <textarea
           name="description"
-          className="w-full col-span-2 textarea textarea-bordered mt-5"
+          className="w-full col-span-2 textarea textarea-bordered md:mt-5"
           placeholder="description..."
         ></textarea>
         <div className="col-span-2 mx-auto my-5">

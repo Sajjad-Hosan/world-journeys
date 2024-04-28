@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import ListItem from "../../components/ListItem/ListItem";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
+import NoData from "../../components/NoData/NoData";
 
 const MyLists = () => {
   const loaderData = useLoaderData();
@@ -28,15 +29,19 @@ const MyLists = () => {
             </tr>
           </thead>
           <tbody>
-            {datas.map((item, idx) => (
-              <ListItem
-                key={idx}
-                idx={idx}
-                item={item}
-                datas={datas}
-                setDatas={setDatas}
-              />
-            ))}
+            {datas.length > 0 ? (
+              datas.map((item, idx) => (
+                <ListItem
+                  key={idx}
+                  idx={idx}
+                  item={item}
+                  datas={datas}
+                  setDatas={setDatas}
+                />
+              ))
+            ) : (
+              <NoData />
+            )}
           </tbody>
         </table>
       </div>

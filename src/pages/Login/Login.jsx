@@ -95,7 +95,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 placeholder="write your email"
-                className="input input-bordered w-full font-semibold"
+                className="input input-bordered w-full font-semibold font-montserrate"
                 required
               />
               <div className="relative">
@@ -103,7 +103,7 @@ const Login = () => {
                   type={show ? "text" : "password"}
                   name="password"
                   placeholder="write your password"
-                  className="input input-bordered w-full font-semibold my-4"
+                  className="input input-bordered w-full font-semibold font-montserrate my-4"
                   required
                 />
                 <p

@@ -1,6 +1,10 @@
+import { useLoaderData } from "react-router-dom";
 import ListItem from "../../components/ListItem/ListItem";
+import { useState } from "react";
 
 const MyLists = () => {
+  const loaderData = useLoaderData();
+  const [datas,setDatas] = useState(loaderData);
   return (
     <div>
       <div className="overflow-x-auto md:px-10 py-10">
@@ -16,9 +20,9 @@ const MyLists = () => {
             </tr>
           </thead>
           <tbody>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
+            {loaderData.map((item, idx) => (
+              <ListItem key={idx} idx={idx} item={item} datas={datas} setDatas={setDatas} />
+            ))}
           </tbody>
         </table>
       </div>

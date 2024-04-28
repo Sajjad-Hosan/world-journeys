@@ -1,10 +1,24 @@
-import { useContext } from "react";
-import { AuthContext } from "../../Auth/AuthProvider";
-import Swal from "sweetalert2/dist/sweetalert2.js";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2/dist/sweetalert2";
 
-const AddSpot = () => {
-  const { add, setAdd, user } = useContext(AuthContext);
-  const emailId = user?.email;
+const UserSpotUpdate = () => {
+  const data = useLoaderData();
+  const navigate = useNavigate();
+  const {
+    _id,
+    spotName,
+    countryName,
+    locationName,
+    shortDes,
+    description,
+    avgCost,
+    travelTime,
+    photoUrl,
+    seasonality,
+    totalVisitor,
+    userName,
+    userEmail,
+  } = data;
   const handleAddSpot = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -33,22 +47,21 @@ const AddSpot = () => {
       totalVisitor,
       userName,
       userEmail,
-      emailId
     };
     //
-    fetch("http://localhost:4000/user-spot", {
-      method: "POST",
+    fetch(`http://localhost:4000/user-spot/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(touristsDetails),
     });
-    setAdd([...add, touristsDetails]);
     Swal.fire({
       title: "Create",
       text: "Data has added to database!",
       icon: "success",
-    })
+    });
+    navigate(-1);
     form.reset();
   };
   return (
@@ -61,6 +74,7 @@ const AddSpot = () => {
         <input
           type="text"
           name="spot_name"
+          defaultValue={spotName}
           placeholder="tourists spot name"
           className="input input-bordered w-full font-medium "
         />
@@ -68,12 +82,14 @@ const AddSpot = () => {
           <input
             type="text"
             name="Country_name"
+          defaultValue={countryName}
             placeholder="country name"
             className="input input-bordered w-full font-medium "
           />
           <input
             type="text"
             name="location_name"
+            defaultValue={locationName}
             placeholder="location name"
             className="input input-bordered w-full font-medium "
           />
@@ -81,6 +97,7 @@ const AddSpot = () => {
         <input
           type="text"
           name="short_des"
+          defaultValue={shortDes}
           placeholder="short description"
           className="input input-bordered w-full font-medium "
         />
@@ -88,12 +105,14 @@ const AddSpot = () => {
           <input
             type="text"
             name="avg_cost"
+          defaultValue={avgCost}
             placeholder="average cost"
             className="input input-bordered w-full font-medium "
           />
           <input
             type="text"
             name="travel_time"
+          defaultValue={travelTime}
             placeholder="travel time"
             className="input input-bordered w-full font-medium "
           />
@@ -101,6 +120,7 @@ const AddSpot = () => {
         <input
           type="text"
           name="photoUrl"
+          defaultValue={photoUrl}
           placeholder="photoUrl"
           className="input input-bordered w-full font-medium "
         />
@@ -108,12 +128,14 @@ const AddSpot = () => {
           <input
             type="text"
             name="seasonality"
+          defaultValue={seasonality}
             placeholder="seasonality names"
             className="input input-bordered w-full font-medium "
           />
           <input
             type="text"
             name="total_visitor"
+          defaultValue={totalVisitor}
             placeholder="total visitor per year"
             className="input input-bordered w-full font-medium "
           />
@@ -121,18 +143,21 @@ const AddSpot = () => {
         <input
           type="text"
           name="user_name"
+          defaultValue={userName}
           placeholder="write your username"
           className="input input-bordered w-full font-medium "
         />
         <input
           type="text"
           name="user_email"
+          defaultValue={userEmail}
           placeholder="write your email"
           className="input input-bordered w-full font-medium  mt-5 md:mt-0"
         />
         <textarea
           name="description"
           className="w-full col-span-2 textarea textarea-bordered mt-5"
+          defaultValue={description}
           placeholder="description..."
         ></textarea>
         <div className="col-span-2 mx-auto my-5">
@@ -147,4 +172,4 @@ const AddSpot = () => {
   );
 };
 
-export default AddSpot;
+export default UserSpotUpdate;

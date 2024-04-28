@@ -1,3 +1,4 @@
+import { Slide } from "react-awesome-reveal";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2/dist/sweetalert2";
 
@@ -60,12 +61,14 @@ const UpdatePage = () => {
     form.reset();
   };
   return (
-    <div className="px-8 py-4">
+    <div className="md:px-8 py-4">
       <h1 className="text-4xl font-semibold">Update Tourists Spot</h1>
       <form
         onSubmit={handleAddSpot}
-        className="md:grid md:grid-cols-2 gap-5 px-10 py-5 my-8"
+        className="md:grid md:grid-cols-2 gap-5 md:px-10 py-5 my-8"
       >
+        <Slide>
+
         <input
           type="text"
           name="spot_name"
@@ -136,7 +139,7 @@ const UpdatePage = () => {
           />
         </div>
         <textarea
-          className="textarea textarea-bordered font-montserrat col-span-2"
+          className="textarea textarea-bordered font-montserrat col-span-2 w-full"
           name="description"
           placeholder="description"
           defaultValue={description}
@@ -147,8 +150,9 @@ const UpdatePage = () => {
             type="submit"
             value="Update Spot"
             className="btn btn-neutral px-10"
-          />
+            />
         </div>
+            </Slide>
       </form>
     </div>
   );

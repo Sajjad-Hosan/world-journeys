@@ -11,6 +11,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/picture/loginPic.svg";
 import { AuthContext } from "../../Auth/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import { Bounce, Slide } from "react-awesome-reveal";
 const Login = () => {
   const { loginUser, googlePopup, githubPopup } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -85,12 +86,16 @@ const Login = () => {
       </Helmet>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse gap-10">
+          <Slide>
           <div className="text-center w-full">
             <img className="w-[600px]" src={img} alt="" />
           </div>
+          </Slide>
           <div className="card shadow-2xl bg-base-100 w-full md:w-[900px] p-6">
             <h1 className="text-4xl font-semibold mb-3">Login Page</h1>
             <form className="mt-5" onSubmit={handleUserLogin}>
+              <Bounce dumping={0.1}>
+
               <input
                 type="email"
                 name="email"
@@ -129,8 +134,10 @@ const Login = () => {
                 value="Login"
                 className="btn btn-success px-10 mt-5"
               />
+                </Bounce>
             </form>
             <div className="flex gap-5 mt-10 mx-auto">
+              <Bounce dumping={0.2}>
               <button onClick={handleGooglePop} className="btn btn-success">
                 <FaGoogle /> Google
               </button>
@@ -140,6 +147,7 @@ const Login = () => {
               <button onClick={handleTwitterPop} className="btn btn-info">
                 <FaTwitter /> Twitter
               </button>
+              </Bounce>
             </div>
           </div>
         </div>

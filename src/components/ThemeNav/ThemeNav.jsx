@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { Bounce, Slide } from "react-awesome-reveal";
 
 const ThemeNav = () => {
   const [theme, setTheme] = useState();
   useEffect(() => {
-      setTheme(localStorage.getItem("theme"));
+    setTheme(localStorage.getItem("theme"));
     document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
   const themeNames = [
@@ -48,11 +49,13 @@ const ThemeNav = () => {
     <>
       <dialog id="theme_page" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box relative">
-        <div className="modal-action flex items-center justify-between mb-5">
+          <div className="modal-action flex items-center justify-between mb-5">
+              <Bounce dumping={0.1}>
             <h1 className="text-2x">Choses Your Theme</h1>
             <form method="dialog">
-              <button className="btn btn-ghost px-8 font-light">Close</button>
+                <button className="btn btn-ghost px-8 font-light">Close</button>
             </form>
+              </Bounce>
           </div>
           <ul
             tabIndex={0}
@@ -60,14 +63,16 @@ const ThemeNav = () => {
           >
             {themeNames.map((themeName, idx) => (
               <li key={idx}>
-                <input
-                  type="radio"
-                  name="theme_dropdown"
-                  onChange={handleThemeName}
-                  className="theme-controller font-montserrat btn btn-sm btn-block btn-ghost justify-start"
-                  aria-label={themeName}
-                  value={themeName}
-                />
+                <Slide dumping={0.1}>
+                  <input
+                    type="radio"
+                    name="theme_dropdown"
+                    onChange={handleThemeName}
+                    className="theme-controller font-montserrat btn btn-sm btn-block btn-ghost justify-start"
+                    aria-label={themeName}
+                    value={themeName}
+                  />
+                </Slide>
               </li>
             ))}
           </ul>

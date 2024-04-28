@@ -12,6 +12,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet-async";
+import { Bounce, Slide } from "react-awesome-reveal";
 const Register = () => {
   const { createUser, googlePopup, githubPopup } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -136,12 +137,18 @@ const Register = () => {
       </Helmet>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse gap-10">
+          <Slide>
           <div className="text-center w-full">
             <img className="w-full md:w-[600px] rounded-lg" src={img} alt="" />
           </div>
+          </Slide>
           <div className="card shadow-2xl bg-base-100 w-full md:w-[900px] p-6">
+            <Bounce>
             <h1 className="text-4xl font-semibold mb-3">Register Page</h1>
+            </Bounce>
             <form className="mt-5" onSubmit={handleUserRegister}>
+              <Bounce>
+
               <input
                 type="name"
                 name="name"
@@ -192,8 +199,10 @@ const Register = () => {
                 value="Register"
                 className="btn btn-success px-10 mt-5"
               />
+                </Bounce>
             </form>
             <div className="flex gap-5 mt-10 mx-auto">
+              <Bounce>
               <button onClick={handleGooglePop} className="btn btn-success">
                 <FaGoogle /> Google
               </button>
@@ -203,6 +212,7 @@ const Register = () => {
               <button onClick={handleTwitterPop} className="btn btn-info">
                 <FaTwitter /> Twitter
               </button>
+              </Bounce>
             </div>
           </div>
         </div>

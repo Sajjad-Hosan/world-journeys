@@ -1,3 +1,4 @@
+import { Slide } from "react-awesome-reveal";
 import { Link, useLoaderData } from "react-router-dom";
 
 const UserSpotView = () => {
@@ -17,16 +18,18 @@ const UserSpotView = () => {
   return (
     <div className="my-18">
       <div className="card card-side">
-        <div className="w-[550px] h-[500px] rounded-2xl overflow-hidden">
-          <img
-            className="w-full h-full object-cover"
-            src={
-              image ||
-              "https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-            }
-            alt=""
-          />
-        </div>
+        <Slide>
+          <div className="w-[550px] h-[500px] rounded-2xl overflow-hidden">
+            <img
+              className="w-full h-full object-cover"
+              src={
+                image ||
+                "https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+              }
+              alt=""
+            />
+          </div>
+        </Slide>
         <div className="px-10 py-8 w-[50%] font-montserrat space-y-3">
           <div className="w-full flex items-center justify-between">
             <h2 className="card-title text-4xl font-semibold">
@@ -42,7 +45,12 @@ const UserSpotView = () => {
           </p>
           <p className="text-xl font-semibold">seasonality: {seasonality}</p>
           <div className="card-actions justify-end">
-            <Link to={`/update-user-spot/${_id}`} className="btn btn-neutral px-12 font-pacifico font-light">Update</Link>
+            <Link
+              to={`/update-user-spot/${_id}`}
+              className="btn btn-neutral px-12 font-pacifico font-light"
+            >
+              Update
+            </Link>
           </div>
         </div>
       </div>

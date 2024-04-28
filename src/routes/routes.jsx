@@ -23,11 +23,13 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:4000/tourists"),
+        loader: () =>
+          fetch("https://world-journeys-server.vercel.app/tourists"),
       },
       {
         path: "/allSpots",
-        loader: () => fetch("http://localhost:4000/user-spots"),
+        loader: () =>
+          fetch("https://world-journeys-server.vercel.app/user-spots"),
         element: (
           <PrivateRoute>
             <AllSpots />
@@ -36,7 +38,8 @@ const routes = createBrowserRouter([
       },
       {
         path: "/:countryName/cards",
-        loader: () => fetch("http://localhost:4000/tourists"),
+        loader: () =>
+          fetch("https://world-journeys-server.vercel.app/tourists"),
         element: <CountryCards />,
       },
       {
@@ -49,7 +52,8 @@ const routes = createBrowserRouter([
       },
       {
         path: "/myList",
-        loader: () => fetch("http://localhost:4000/user-spots"),
+        loader: () =>
+          fetch("https://world-journeys-server.vercel.app/user-spots"),
         element: (
           <PrivateRoute>
             <MyLists />
@@ -59,7 +63,9 @@ const routes = createBrowserRouter([
       {
         path: `/tourist/:id`,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/tourist/${params.id}`),
+          fetch(
+            `https://world-journeys-server.vercel.app/tourist/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <ViewPage />
@@ -69,7 +75,9 @@ const routes = createBrowserRouter([
       {
         path: `/update/:id`,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/tourist/${params.id}`),
+          fetch(
+            `https://world-journeys-server.vercel.app/tourist/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <UpdatePage />
@@ -79,7 +87,9 @@ const routes = createBrowserRouter([
       {
         path: `/update-user-spot/:id`,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/user-spot/${params.id}`),
+          fetch(
+            `https://world-journeys-server.vercel.app/user-spot/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <UserSpotUpdate />
@@ -89,7 +99,9 @@ const routes = createBrowserRouter([
       {
         path: `/user-spot/:id`,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/user-spot/${params.id}`),
+          fetch(
+            `https://world-journeys-server.vercel.app/user-spot/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <UserSpotView />

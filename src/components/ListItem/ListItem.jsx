@@ -16,7 +16,7 @@ const ListItem = ({ idx, item, setDatas, datas }) => {
       confirmButtonText: "Yes, delete!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/user-spot/${id}`, {
+        fetch(`https://world-journeys-server.vercel.app/user-spot/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -36,7 +36,7 @@ const ListItem = ({ idx, item, setDatas, datas }) => {
   };
   return (
     <>
-     <tr className="hover font-montserrat">
+      <tr className="hover font-montserrat">
         <th>{idx}</th>
         <td>{tourists_spot_name}</td>
         <td>{location}</td>

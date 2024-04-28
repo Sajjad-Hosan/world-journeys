@@ -4,7 +4,7 @@ import CountryCard from "../CountryCard/CountryCard";
 const CountrySection = () => {
   const [countrys, setCountrys] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/countrys")
+    fetch("https://world-journeys-server.vercel.app/countrys")
       .then((res) => res.json())
       .then((data) => setCountrys(data));
   }, []);

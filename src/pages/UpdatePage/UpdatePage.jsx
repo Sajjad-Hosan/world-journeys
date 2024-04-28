@@ -43,7 +43,7 @@ const UpdatePage = () => {
       totalVisitor,
     };
     //
-    fetch(`http://localhost:4000/tourist/${_id}`, {
+    fetch(`https://world-journeys-server.vercel.app/tourist/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

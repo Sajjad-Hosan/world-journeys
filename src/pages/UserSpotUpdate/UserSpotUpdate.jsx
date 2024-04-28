@@ -49,7 +49,7 @@ const UserSpotUpdate = () => {
       userEmail,
     };
     //
-    fetch(`http://localhost:4000/user-spot/${_id}`, {
+    fetch(`https://world-journeys-server.vercel.app/user-spot/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -82,7 +82,7 @@ const UserSpotUpdate = () => {
           <input
             type="text"
             name="Country_name"
-          defaultValue={country_Name}
+            defaultValue={country_Name}
             placeholder="country name"
             className="input input-bordered w-full font-medium "
           />
@@ -105,14 +105,14 @@ const UserSpotUpdate = () => {
           <input
             type="text"
             name="avg_cost"
-          defaultValue={average_cost}
+            defaultValue={average_cost}
             placeholder="average cost"
             className="input input-bordered w-full font-medium "
           />
           <input
             type="text"
             name="travel_time"
-          defaultValue={travel_time}
+            defaultValue={travel_time}
             placeholder="travel time"
             className="input input-bordered w-full font-medium "
           />
@@ -128,14 +128,14 @@ const UserSpotUpdate = () => {
           <input
             type="text"
             name="seasonality"
-          defaultValue={seasonality}
+            defaultValue={seasonality}
             placeholder="seasonality names"
             className="input input-bordered w-full font-medium "
           />
           <input
             type="text"
             name="total_visitor"
-          defaultValue={totalVisitorsPerYear}
+            defaultValue={totalVisitorsPerYear}
             placeholder="total visitor per year"
             className="input input-bordered w-full font-medium "
           />

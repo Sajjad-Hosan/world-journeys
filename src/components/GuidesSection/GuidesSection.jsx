@@ -9,11 +9,10 @@ import "../../styles.css";
 import { Pagination, Mousewheel, Scrollbar } from "swiper/modules";
 import { useEffect, useState } from "react";
 
-
 const GuidesSection = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/guides")
+    fetch("https://world-journeys-server.vercel.app/guides")
       .then((res) => res.json())
       .then((result) => setData(result));
   });

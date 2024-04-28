@@ -36,7 +36,7 @@ const AddSpot = () => {
       emailId,
     };
     //
-    fetch("http://localhost:4000/user-spot", {
+    fetch("https://world-journeys-server.vercel.app/user-spot", {
       method: "POST",
       headers: {
         "content-type": "application/json",

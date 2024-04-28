@@ -21,14 +21,15 @@ const ListItem = ({ idx, item, setDatas, datas }) => {
         })
           .then((res) => res.json())
           .then((result) => {
-            console.log(result);
             if (result.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
                 text: "Your Spot has been deleted.",
                 icon: "success",
               });
-              navigate('/');
+              const remaining = datas.filter((item) => item._id !== id);
+              setDatas(remaining);
+              // navigate('/');
             }
           });
       }

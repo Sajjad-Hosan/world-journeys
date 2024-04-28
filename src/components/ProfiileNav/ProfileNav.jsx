@@ -3,6 +3,7 @@ import { AuthContext } from "../../Auth/AuthProvider";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import Profile from "../Profile/Profile";
 import ThemeNav from "../ThemeNav/ThemeNav";
+import { Bounce } from "react-awesome-reveal";
 
 const ProfileNav = () => {
   const { user, logoutUser } = useContext(AuthContext);
@@ -34,8 +35,10 @@ const ProfileNav = () => {
   return (
     <div>
       <div className="absolute">
+        <Bounce dumping={0.2}>
         <Profile />
         <ThemeNav/>
+        </Bounce>
       </div>
       <div className="dropdown dropdown-end z-10">
         <div

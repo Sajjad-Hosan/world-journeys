@@ -2,6 +2,7 @@ import { FaPenToSquare, FaTrash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2/dist/sweetalert2";
 import PropTypes from "prop-types";
+import { Slide } from "react-awesome-reveal";
 
 const ListItem = ({ idx, item, setDatas, datas }) => {
   const { _id, tourists_spot_name, country_name, location } = item;
@@ -36,26 +37,28 @@ const ListItem = ({ idx, item, setDatas, datas }) => {
   };
   return (
     <>
-      <tr className="hover font-montserrat">
-        <th>{idx}</th>
-        <td>{tourists_spot_name}</td>
-        <td>{location}</td>
-        <td>{country_name}</td>
-        <th className="flex flex-col md:flex-row gap-2 md:gap-4">
-          <button
-            onClick={() => handleDeleteSpot(_id)}
-            className="btn btn-sm md:btn-md btn-primary"
-          >
-            <FaTrash />
-          </button>
-          <Link
-            to={`/update-user-spot/${_id}`}
-            className="btn btn-sm md:btn-md btn-neutral"
-          >
-            <FaPenToSquare />
-          </Link>
-        </th>
-      </tr>
+      <Slide damping={0.1}>
+        <tr className="hover font-montserrat">
+          <th>{idx}</th>
+          <td>{tourists_spot_name}</td>
+          <td>{location}</td>
+          <td>{country_name}</td>
+          <th className="flex flex-col md:flex-row gap-2 md:gap-4">
+            <button
+              onClick={() => handleDeleteSpot(_id)}
+              className="btn btn-sm md:btn-md btn-primary"
+            >
+              <FaTrash />
+            </button>
+            <Link
+              to={`/update-user-spot/${_id}`}
+              className="btn btn-sm md:btn-md btn-neutral"
+            >
+              <FaPenToSquare />
+            </Link>
+          </th>
+        </tr>
+      </Slide>
     </>
   );
 };

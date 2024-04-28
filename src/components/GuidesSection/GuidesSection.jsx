@@ -8,6 +8,7 @@ import "../../styles.css";
 // import required modules
 import { Pagination, Mousewheel, Scrollbar } from "swiper/modules";
 import { useEffect, useState } from "react";
+import { Bounce, Slide } from "react-awesome-reveal";
 
 const GuidesSection = () => {
   const [data, setData] = useState([]);
@@ -19,6 +20,7 @@ const GuidesSection = () => {
   return (
     <div className="flex flex-col gap-5 mt-24 mb-28">
       <div className="text-center">
+      <Bounce damping={0.1}>
         <h1 className="text-3xl font-semibold">Our Guides</h1>
         <p className="text-md mt-3 font-semibold font-montserrat">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum possimus
@@ -28,8 +30,10 @@ const GuidesSection = () => {
           quia eaque, ad aspernatur quis officiis numquam impedit omnis quos
           odit quo necessitatibus sed.
         </p>
+        </Bounce>
       </div>
       <div className="mt-8 md:h-[400px] w-full">
+      <Slide damping={0.1}>
         <Swiper
           slidesPerView={1}
           mousewheel={true}
@@ -50,6 +54,7 @@ const GuidesSection = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+        </Slide>
       </div>
     </div>
   );

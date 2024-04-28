@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CountryCard from "../CountryCard/CountryCard";
+import { Bounce, Zoom } from "react-awesome-reveal";
 
 const CountrySection = () => {
   const [countrys, setCountrys] = useState([]);
@@ -11,6 +12,7 @@ const CountrySection = () => {
   return (
     <div className="flex flex-col gap-5 mt-24">
       <div className="text-center mb-10">
+      <Bounce damping={0.2}>
         <h1 className="text-3xl font-semibold">Country Section</h1>
         <p className="text-md mt-3 font-semibold font-montserrat">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum possimus
@@ -20,12 +22,15 @@ const CountrySection = () => {
           quia eaque, ad aspernatur quis officiis numquam impedit omnis quos
           odit quo necessitatibus sed.
         </p>
+        </Bounce>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:px-10 py-5">
+      <Zoom damping={0.1}>
         {countrys.map((country) => (
           <CountryCard key={country._id} country={country} />
         ))}
+      </Zoom>
       </div>
     </div>
   );

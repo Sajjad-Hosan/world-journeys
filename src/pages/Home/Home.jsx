@@ -7,6 +7,7 @@ import CountrySection from "../../components/CountrySection/CountrySection";
 import GuidesSection from "../../components/GuidesSection/GuidesSection";
 import { Helmet } from "react-helmet-async";
 import AboutUs from "../../components/AboutUs/AboutUs";
+import { Slide } from "react-awesome-reveal";
 
 const Home = () => {
   const { setData } = useContext(AuthContext);
@@ -26,7 +27,9 @@ const Home = () => {
       <Helmet>
         <title>World Journeys || Home</title>
       </Helmet>
+      <Slide dumping={0.1}>
       <Slider />
+      </Slide>
       <TouristsSpots />
       <CountrySection />
       <GuidesSection/>

@@ -4,11 +4,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
 import { FaUser } from "react-icons/fa6";
 import { Typewriter } from "react-simple-typewriter";
+import { Bounce } from "react-awesome-reveal";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
   const navLinks = (
     <>
+    <Bounce dumping={0.1}>
       <li className="mx-3 my-2 font-montserrat">
         <NavLink to="/">Home</NavLink>
       </li>
@@ -21,6 +23,7 @@ const Header = () => {
       <li className="mx-3 my-2 font-montserrat">
         <NavLink to="/myList">My List</NavLink>
       </li>
+    </Bounce>
     </>
   );
   return (
@@ -66,7 +69,9 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end z-10">
+          <Bounce dumping={0.1}>
+
           {user ? (
             <ProfileNav />
           ) : (
@@ -74,6 +79,7 @@ const Header = () => {
               <FaUser /> Login
             </Link>
           )}
+          </Bounce>
         </div>
       </div>
     </>

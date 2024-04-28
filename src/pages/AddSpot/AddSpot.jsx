@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
 import Swal from "sweetalert2/dist/sweetalert2.js";
+import { Bounce, Slide } from "react-awesome-reveal";
 
 const AddSpot = () => {
   const { add, setAdd, user } = useContext(AuthContext);
@@ -53,11 +54,14 @@ const AddSpot = () => {
   };
   return (
     <div className="px-8 py-4">
+      <Slide damping={0.3}>
       <h1 className="text-4xl font-semibold">Add Tourists Spot</h1>
+      </Slide>
       <form
         onSubmit={handleAddSpot}
         className="md:grid md:grid-cols-2 gap-5 md:px-10 py-5 my-5 font-montserrat"
       >
+      <Bounce damping={0.3}>
         <input
           type="text"
           name="spotName"
@@ -148,6 +152,7 @@ const AddSpot = () => {
             className="btn btn-neutral px-10"
           />
         </div>
+        </Bounce>
       </form>
     </div>
   );

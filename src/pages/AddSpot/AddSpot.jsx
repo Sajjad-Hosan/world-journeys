@@ -8,32 +8,32 @@ const AddSpot = () => {
   const handleAddSpot = (e) => {
     e.preventDefault();
     const form = e.target;
-    const spotName = form.spot_name.value;
-    const countryName = form.Country_name.value;
-    const locationName = form.location_name.value;
-    const shortDes = form.short_des.value;
+    const tourists_spot_name = form.spotName.value;
+    const country_Name = form.countryName.value;
+    const location = form.locationName.value;
+    const short_description = form.shortDes.value;
     const description = form.description.value;
-    const avgCost = form.avg_cost.value;
-    const travelTime = form.travel_time.value;
-    const photoUrl = form.photoUrl.value;
+    const average_cost = form.avgCost.value;
+    const travel_time = form.travelTime.value;
+    const image = form.photoUrl.value;
     const seasonality = form.seasonality.value;
-    const totalVisitor = form.total_visitor.value;
+    const totalVisitorsPerYear = form.totalVisitor.value;
     const userName = form.user_name.value;
     const userEmail = form.user_email.value;
     const touristsDetails = {
-      spotName,
-      countryName,
-      locationName,
-      shortDes,
+      image,
+      tourists_spot_name,
+      country_Name,
+      location,
       description,
-      avgCost,
-      travelTime,
-      photoUrl,
+      average_cost,
+      short_description,
       seasonality,
-      totalVisitor,
+      travel_time,
+      totalVisitorsPerYear,
       userName,
       userEmail,
-      emailId
+      emailId,
     };
     //
     fetch("http://localhost:4000/user-spot", {
@@ -48,7 +48,7 @@ const AddSpot = () => {
       title: "Create",
       text: "Data has added to database!",
       icon: "success",
-    })
+    });
     form.reset();
   };
   return (
@@ -60,40 +60,40 @@ const AddSpot = () => {
       >
         <input
           type="text"
-          name="spot_name"
+          name="spotName"
           placeholder="tourists spot name"
           className="input input-bordered w-full font-medium "
         />
         <div className="flex flex-col md:flex-row gap-5 my-5 md:my-0">
           <input
             type="text"
-            name="Country_name"
+            name="countryName"
             placeholder="country name"
             className="input input-bordered w-full font-medium "
           />
           <input
             type="text"
-            name="location_name"
+            name="locationName"
             placeholder="location name"
             className="input input-bordered w-full font-medium "
           />
         </div>
         <input
           type="text"
-          name="short_des"
+          name="shortDes"
           placeholder="short description"
           className="input input-bordered w-full font-medium "
         />
         <div className="flex flex-col md:flex-row gap-5 my-5 md:my-0">
           <input
             type="text"
-            name="avg_cost"
+            name="avgCost"
             placeholder="average cost"
             className="input input-bordered w-full font-medium "
           />
           <input
             type="text"
-            name="travel_time"
+            name="travelTime"
             placeholder="travel time"
             className="input input-bordered w-full font-medium "
           />
@@ -113,7 +113,7 @@ const AddSpot = () => {
           />
           <input
             type="text"
-            name="total_visitor"
+            name="totalVisitor"
             placeholder="total visitor per year"
             className="input input-bordered w-full font-medium "
           />

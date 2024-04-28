@@ -5,14 +5,14 @@ import { AuthContext } from "../../Auth/AuthProvider";
 
 const MyLists = () => {
   const loaderData = useLoaderData();
-  const {user} = useContext(AuthContext);
-  const [email,setEmail] = useState();
-  const [datas,setDatas] = useState([]);
+  const { user } = useContext(AuthContext);
+  const [email, setEmail] = useState();
+  const [datas, setDatas] = useState([]);
   useEffect(() => {
-    const filter = loaderData.filter(data => data.emailId === email);
+    const filter = loaderData.filter((data) => data.emailId === email);
     setEmail(user?.email);
     setDatas(filter);
-  },[email])
+  }, [email]);
   return (
     <div>
       <div className="overflow-x-auto md:px-10 py-10">
@@ -29,7 +29,13 @@ const MyLists = () => {
           </thead>
           <tbody>
             {datas.map((item, idx) => (
-              <ListItem key={idx} idx={idx} item={item} datas={datas} setDatas={setDatas} />
+              <ListItem
+                key={idx}
+                idx={idx}
+                item={item}
+                datas={datas}
+                setDatas={setDatas}
+              />
             ))}
           </tbody>
         </table>

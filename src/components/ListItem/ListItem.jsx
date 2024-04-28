@@ -1,10 +1,9 @@
 import { FaPenToSquare, FaTrash } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2/dist/sweetalert2";
 
 const ListItem = ({ idx, item, setDatas, datas }) => {
-  const { _id, spotName, countryName, locationName } = item;
-  const navigate = useNavigate();
+  const { _id, tourists_spot_name, country_name, location } = item;
   const handleDeleteSpot = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -29,7 +28,6 @@ const ListItem = ({ idx, item, setDatas, datas }) => {
               });
               const remaining = datas.filter((item) => item._id !== id);
               setDatas(remaining);
-              // navigate('/');
             }
           });
       }
@@ -39,9 +37,9 @@ const ListItem = ({ idx, item, setDatas, datas }) => {
     <>
       <tr className="hover font-montserrat">
         <th>{idx}</th>
-        <td>{spotName}</td>
-        <td>{locationName}</td>
-        <td>{countryName}</td>
+        <td>{tourists_spot_name}</td>
+        <td>{location}</td>
+        <td>{country_name}</td>
         <th className="flex flex-col md:flex-row gap-2 md:gap-4">
           <button
             onClick={() => handleDeleteSpot(_id)}
@@ -50,7 +48,7 @@ const ListItem = ({ idx, item, setDatas, datas }) => {
             <FaTrash />
           </button>
           <Link
-            to={`/update-user-spot/${_id}`}
+            to={`/user-spot/${_id}`}
             className="btn btn-sm md:btn-md btn-neutral"
           >
             <FaPenToSquare />

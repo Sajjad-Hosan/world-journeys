@@ -12,6 +12,7 @@ import AllSpots from "../pages/AllSpots/AllSpots";
 import CountryCard from "../components/CountryCard/CountryCard";
 import CountryCards from "../pages/CountryCards/CountryCards";
 import UserSpotUpdate from "../pages/UserSpotUpdate/UserSpotUpdate";
+import UserSpotView from "../pages/UserSpotView/UserSpotView";
 
 const routes = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/allSpots",
-        // loader: () => fetch("http://localhost:4000/tourists"),
+        loader: () => fetch("http://localhost:4000/user-spots"),
         element: <AllSpots />,
       },
       {
@@ -57,8 +58,14 @@ const routes = createBrowserRouter([
       },
       {
         path: `/update-user-spot/:id`,
-        loader: ({ params }) => fetch(`http://localhost:4000/user-spot/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/user-spot/${params.id}`),
         element: <UserSpotUpdate />,
+      },
+      {
+        path: `/user-spot/:id`,
+        loader: ({ params }) => fetch(`http://localhost:4000/user-spot/${params.id}`),
+        element: <UserSpotView />,
       },
       {
         path: "/login",

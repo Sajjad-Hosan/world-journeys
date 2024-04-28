@@ -3,7 +3,6 @@ import { useLoaderData } from "react-router-dom";
 const UserSpotView = () => {
   const data = useLoaderData();
   const {
-    _id,
     image,
     tourists_spot_name,
     country_Name,

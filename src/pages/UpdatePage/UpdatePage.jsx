@@ -1,9 +1,8 @@
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2/dist/sweetalert2";
 
 const UpdatePage = () => {
   const data = useLoaderData();
-  const { pathname } = useParams();
   const navigate = useNavigate();
   const {
     _id,

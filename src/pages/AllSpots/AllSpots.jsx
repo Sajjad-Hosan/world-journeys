@@ -12,7 +12,7 @@ const AllSpots = () => {
     const filter = loaderData.filter((data) => data.emailId === email);
     setEmail(user?.email);
     setDatas(filter);
-  }, [email]);
+  }, [email,loaderData]);
   return (
     <div className="grid md:grid-cols-2 gap-6">
       {datas.map((item) => (

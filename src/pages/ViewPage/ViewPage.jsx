@@ -1,5 +1,4 @@
 import { Link, useLoaderData } from "react-router-dom";
-import Swal from "sweetalert2/dist/sweetalert2";
 
 const ViewPage = () => {
   const data = useLoaderData();

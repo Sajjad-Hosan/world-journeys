@@ -95,7 +95,7 @@ const Login = () => {
           <div className="card w-full md:w-[900px] p-6">
             <h1 className="text-4xl font-semibold mb-3">Login Page</h1>
             <form className="mt-5" onSubmit={handleUserLogin}>
-              <Bounce dumping={0.1}>
+              <Bounce dumping={0.1} className="w-[400px] md:w-[600px]">
                 <input
                   type="email"
                   name="email"

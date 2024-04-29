@@ -1,5 +1,7 @@
 # World Journeys
 A Webpage for travel or tour related datas.Where You Can Find Where You Want To Go!
+## Screenshots
+![App Screenshot](https://i.ibb.co/BK9gTmX/World-Journeys-Home-1.png)
 ## Live Link
 # Link - https://world-journeys-6b61a.web.app/
 ## Features

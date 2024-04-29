@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import "sweetalert2/src/sweetalert2.scss";
 import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
+import "sweetalert2/src/sweetalert2.scss";
+import 'react-tooltip/dist/react-tooltip.css'
 
 const Root = () => {
   const { loading } = useContext(AuthContext);

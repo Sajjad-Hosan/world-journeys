@@ -13,6 +13,7 @@ import { AuthContext } from "../../Auth/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet-async";
 import { Bounce, Slide } from "react-awesome-reveal";
+import { Tooltip } from "react-tooltip";
 const Register = () => {
   const { createUser, googlePopup, githubPopup } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -142,13 +143,12 @@ const Register = () => {
             <img className="w-full md:w-[600px] rounded-lg" src={img} alt="" />
           </div>
           </Slide>
-          <div className="card shadow-2xl bg-base-100 w-full md:w-[900px] p-6">
+          <div className="card w-full md:w-[900px] p-6">
             <Bounce>
             <h1 className="text-4xl font-semibold mb-3">Register Page</h1>
             </Bounce>
             <form className="mt-5" onSubmit={handleUserRegister}>
-              <Bounce>
-
+              <Bounce className="w-[400px] md:w-[600px]">
               <input
                 type="name"
                 name="name"
@@ -197,21 +197,37 @@ const Register = () => {
               <input
                 type="submit"
                 value="Register"
-                className="btn btn-success px-10 mt-5"
+                className="btn btn-success px-10 mt-5 text-white font-light"
               />
                 </Bounce>
             </form>
             <div className="flex gap-5 mt-10 mx-auto">
-              <Bounce>
-              <button onClick={handleGooglePop} className="btn btn-success">
-                <FaGoogle /> Google
-              </button>
-              <button onClick={handleGithubPop} className="btn btn-neutral">
-                <FaGithub /> Github
-              </button>
-              <button onClick={handleTwitterPop} className="btn btn-info">
-                <FaTwitter /> Twitter
-              </button>
+              <Bounce dumping={0.2}>
+                <a
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content="Google"
+                  onClick={handleGooglePop}
+                  className="btn btn-success text-white"
+                >
+                  <FaGoogle />
+                </a>
+                <a
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content="Github"
+                  onClick={handleGithubPop}
+                  className="btn btn-neutral"
+                >
+                  <FaGithub />
+                </a>
+                <a
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content="Twitter"
+                  onClick={handleTwitterPop}
+                  className="btn btn-info text-white"
+                >
+                  <FaTwitter />
+                </a>
+                <Tooltip id="my-tooltip" />
               </Bounce>
             </div>
           </div>

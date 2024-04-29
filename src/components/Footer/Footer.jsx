@@ -1,6 +1,7 @@
 import { Typewriter } from "react-simple-typewriter";
 import Swal from "sweetalert2/dist/sweetalert2.js";
-
+import logo from "../../../public/logo.png"
+ 
 const Footer = () => {
   const handleContactInfo = (e) => {
     e.preventDefault();
@@ -16,7 +17,8 @@ const Footer = () => {
           <div className="flex gap-8 items-center justify-between flex-wrap">
             <div>
               <div className="text-teal-600">
-                <h1 className="text-3xl">
+                <h1 className="text-3xl flex gap-3">
+                <img className="w-12 h-8" src={logo} alt="" />
                   <Typewriter
                     words={["World Journeys", "Always in Your", "Care"]}
                     loop={5}

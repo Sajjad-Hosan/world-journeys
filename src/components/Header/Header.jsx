@@ -5,6 +5,7 @@ import { AuthContext } from "../../Auth/AuthProvider";
 import { FaUser } from "react-icons/fa6";
 import { Typewriter } from "react-simple-typewriter";
 import { Bounce } from "react-awesome-reveal";
+import logo from "../../../public/logo.png"
 
 const Header = () => {
   const { user } = useContext(AuthContext);
@@ -55,6 +56,7 @@ const Header = () => {
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">
+            <img className="w-12 h-8" src={logo} alt="" />
             <Typewriter
               words={["World Journeys", "Always in Your", "Care"]}
               loop={5}

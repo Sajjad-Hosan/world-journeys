@@ -24,3 +24,25 @@ A Webpage for travel or tour related datas.Where You Can Find Where You Want To 
 - Daisyui
 - React-icons
 - React Props
+
+
+## Run Local to your Pc
+
+Install my-project with npm
+#### Clone repo
+```bash
+  git clone https://github.com/Sajjad-Hosan/world-journeys.git
+```
+#### Go to the folder
+```bash
+  cd world-journeys
+```
+#### Install all npm package
+```bash
+  npm install
+```
+#### Run dev
+```bash
+  npm run dev
+```
+    
